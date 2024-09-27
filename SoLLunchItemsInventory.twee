@@ -1,0 +1,69 @@
+:: SoLLunchItemsInventory [event nobr]
+
+<<set _hasIconMod to !(!window.modUtils.getMod('IconMod'))>>
+<<for _i to 0; _i lt $SoLLunchItems.length; _i++>>
+    <<set _item to $SoLLunchItems[_i]>>
+    <<set _itemobj to setup.SoL.items[_item.item]>>
+    <div class="shop-detailed-item rounded-border">
+    <div class="shop-item-header">
+        <div class="shop-item-name"><<= _itemobj.name>></div>
+    </div>
+    <<= _itemobj.description>>点击物品以取出。
+    <div class="SoL_item_container">
+    <<for _j to 0; _j lt _itemobj.slot; _j++>>
+        <<if _item.content.get(_j)>>
+            <<if !_hasIconMod>>
+                <div class="SoL_item_text">
+                <<set _itemname to !window.modUtils.getMod('ModI18N')?_item.content.get(_j).item:setup.food[_item.content.get(_j).item].cn_name>>
+                <<run _itemname += " x" + _item.content.get(_j).amount>>
+                <<capture _item,_i,_j>>
+                <<link _itemname SoLLunchItemsInventory>><<run setup.SoL.foodTakeOut(_item.content.get(_j).item,_i,_j)>><</link>>
+                <</capture>>
+                </div>
+            <<else>>
+                <div class="SoL_item"><div class="SoL_item_amount"><<= _item.content.get(_j).amount>></div><<SoLContentItemIcon _item.content.get(_j).item>></div>
+            <</if>>
+        <<else>>
+            <<if !_hasIconMod>>
+                <div class="SoL_item_text">空</div>
+            <<else>>
+                <div class="SoL_item"><div class="SoL_item_icon_empty"></div></div>
+            <</if>>
+        <</if>>
+    <</for>>
+    </div>
+    <<if State.passage == "DormFoodStash">>
+        <<set _items to [...Object.keys(V.dormfoodstash), ...Object.keys(V.dormfridge)]>>
+    <<else>>
+        <<set _items to Object.keys(V.dormfoodstash)>>
+    <</if>>
+    <<set _found to false>>
+    <<for _j to 0; _j lt _items.length; _j++>>
+        <<set _food to _items[_j]>>
+        <<set _foodobj to setup.food[_food]>>
+        <<set _time to 2>>
+        <<set _linkname to "放入" + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
+        <<if _foodobj.cooking>>
+            <<set _time to 10>>
+            <<set _linkname to "制作" + (!window.modUtils.getMod('ModI18N')?_foodobj["cook into"]:setup.food[_foodobj["cook into"]].cn_name)>>
+        <</if>>
+        <<set _found to true>>
+        <<if setup.SoL.hasEmptySlot(_i) || setup.SoL.hasFoodEmptySlot(_food,_i)>>
+        <<set _linkfood to _foodobj.cooking?_foodobj["cook into"]:_food>>
+        <<capture _linkfood,_i>>
+            <<if _hasIconMod>><<foodicon _linkfood>><</if>><<link _linkname SoLLunchItemsInventory>>
+                <<run setup.SoL.foodPutIn(_linkfood,_i)>>
+            <</link>>
+        <</capture>>
+        <br>
+        <</if>>
+    <</for>>
+    <<if !_found>>
+        不巧，这似乎什么都不是。也许你应该买些耐保存的东西。
+        <br>
+    <</if>>
+    </div>
+<</for>>
+
+<<link "完成">><<continuegoto>><</link>>
+

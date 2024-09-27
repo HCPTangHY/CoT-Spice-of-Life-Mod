@@ -1,0 +1,49 @@
+.SoL_item_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.SoL_item {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border: 2px dotted;
+    border-color: #464646;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SoL_item_text {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border: 2px dotted;
+    border-color: #464646;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SoL_item_icon {
+    position: static;
+    width: 40px;
+}
+
+.SoL_item_icon_empty {
+    position: static;
+    width: 35px;
+    height: 35px;
+    border: 2px dashed;
+    border-color: #464646;
+    border-radius: 10%;
+}
+
+.SoL_item_amount {
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 40px;
+    font-size: 10px;
+}
