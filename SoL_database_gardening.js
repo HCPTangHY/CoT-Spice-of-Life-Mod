@@ -69,6 +69,20 @@ const SoL_gardening = {
         "purchase quantity": 1,
         flags: []
     },
+    "cabbage": {
+        type: "vegetable",
+        cn_name: "卷心菜",
+        product: "卷心菜",
+        basic: true,
+        growthTime: 90,
+        harvestAmount: 1,
+        harvestValue: 30,
+        difficulty: 3,
+        "restore hunger": 50,
+        "plumpness": 2,
+        "purchase quantity": 1,
+        flags: []
+    }
 }
 
 const gardingFood = {
@@ -113,9 +127,10 @@ const gardingFood = {
         "plumpness": 1,
         "purchase quantity": 1,
         flags: []
-    },
+    }
 };
 
+setup.Gardening.db = Object.assign(setup.Gardening.db, SoL_gardening);
 for (let food in gardingFood) {
     let baseobj = setup.Gardening.db[food];
     setup.food[food] = Object.assign(baseobj, gardingFood[food]);

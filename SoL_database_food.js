@@ -48,7 +48,7 @@ const food = {
         "flags": [],
         cooking: -1
     },
-    "Shrimp": {
+    "shrimp": {
         "cn_name": "虾",
         "restore hunger": 50,
         "plumpness": 1,
@@ -57,5 +57,37 @@ const food = {
         "aoran": "一些",
         "flags": [],
         cooking: -1
-    }
+    },
+    "wheat dough": {
+        "cn_name": "面团",
+        "restore hunger": 100,
+        "plumpness": 2,
+        "purchase quantity": 1,
+        "price": 2,
+        "aoran": "一个",
+        "flags": [],
+        cooking: -1
+    },
+    "raw rice": {
+        "cn_name": "大米",
+        "restore hunger": 100,
+        "plumpness": 2,
+        "purchase quantity": 1,
+        "price": 2,
+        "aoran": "一些",
+        "flags": [],
+        cooking: -1
+    },
 }
+const cookwear = {
+    "cutting board": {
+        category: "appliance",
+        description: "放上去，拿起刀，切下去。",
+        cn_name: "砧板",
+        add: "cutting board",
+        price: 20,
+    },
+}
+
+Object.assign(setup.food, food);
+Object.assign(setup.dormstuff, cookwear);

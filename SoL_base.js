@@ -179,6 +179,7 @@ setup.SoL.GardeningHarvestCollect = function() {
     } else {
         V.dormfridge[seed] = harvest;
     }
+    delete V.gardening[plot]
     V.header = `你收获了${harvest}个${setup.Gardening.db[seed].cn_name}。`;
 }
 
