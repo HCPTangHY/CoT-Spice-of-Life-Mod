@@ -159,3 +159,44 @@ setup.SoL.FoodJournalPage = function(page) {
     T.page = page;
     return result
 }
+setup.SoL.GardeningHarvestCollect = function() {
+    let plot = V.pendingharvest;
+    let seed = V.gardening[plot].plant;
+    delete V.pendingharvest;
+    V.gardening[plot].lastTended = V.gameday;
+    let difficulty = setup.Gardening.db[seed].difficulty;
+    if (V.pc.skillcheck("Gardening", difficulty)) {
+        Wikifier.wikifyEval("<<raiseskill Gardening " + difficulty + ">>")
+        V.gardening[plot].daysTended++;
+    }
+    let total = setup.Gardening.db[seed].growthTime;
+    let perc = V.gardening[plot].daysTended / total;
+    let harvest = setup.Gardening.db[seed].harvestAmount;
+    harvest = Math.round(harvest / 2 + ((harvest / 2) * perc));
+    if (!V.dormfridge) V.dormfridge = {};
+    if (seed in V.dormfridge) {
+        V.dormfridge[seed] += harvest;
+    } else {
+        V.dormfridge[seed] = harvest;
+    }
+    V.header = `你收获了${harvest}个${setup.Gardening.db[seed].cn_name}。`;
+}
+
+// recipe
+
+setup.SoL.searchByFirst = function(food) {
+    let result = [];
+    if (!(food in setup.SoL.recipes.byFirstOriginal)) return [];
+    for (let i in setup.SoL.recipes.byFirstOriginal[food]) {
+        result.push(setup.SoL.recipes.byFirstOriginal[food][i])
+    }
+    let filtered = [];
+    for (let i of result) {
+        let allCheck = true;
+        for (let j of Object.keys(i.original)) {
+            if (!(j in V.dormfoodstash) && !(j in V.dormfridge)) allCheck = false;
+        }
+        if (allCheck) filtered.push(i);
+    }
+    return filtered;
+}

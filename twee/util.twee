@@ -20,3 +20,48 @@
     <</if>>
 <</for>>
 <</widget>>
+
+<<widget "SoLRecipeList">>
+    <<set _hasIconMod to !(!window.modUtils.getMod('IconMod'))>>
+    <<set _recipes to setup.SoL.searchByFirst(_args[0])>>
+    <<for _ridx to 0; _ridx lt _recipes.length; _ridx++>>
+        <<set _linkname to "制作"+_recipes[_ridx].target_cn_name>>
+        <<set _time to _recipes[_ridx].time>>
+        <<set _food to _recipes[_ridx].target>>
+        <<capture _ridx>>
+            <<if _hasIconMod>><<foodicon _food>><</if>><<link _linkname "DormFoodStash">>
+                <<advtime _time Food Relaxation>>
+                <<if $dormfridge[_food]>>
+                    <<run State.variables.dormfridge[_food]++>>
+                <<else>>
+                    <<run State.variables.dormfridge[_food] = 1>>
+                <</if>>
+                <<for _j to 0; _j lt Object.keys(_recipes[_ridx].original).length; _j++>>
+                    <<set _item to Object.keys(_recipes[_ridx].original)[_j]>>
+                    <<set _amount to _recipes[_ridx].original[Object.keys(_recipes[_ridx].original)[_j]]>>
+                    <<if _item in $dormfoodstash>>
+                        <<if $dormfoodstash[_food] is _amount>>
+                            <<run delete State.variables.dormfoodstash[_item]>>
+                        <<else>>
+                            <<run State.variables.dormfoodstash[_item] -= _amount>>
+                        <</if>>
+                    <</if>>
+                    <<if $dormfridge and _item in $dormfridge>>
+                        <<if $dormfridge[_item] is _amount>>
+                            <<run delete State.variables.dormfridge[_item]>>
+                        <<else>>
+                            <<run State.variables.dormfridge[_item] -= _amount>>
+                        <</if>>
+                    <</if>>
+                    <br>
+                <</for>>
+                <<set $header to "你制作了一份" +_recipes[_ridx].target_cn_name+ "，并放入冰箱。">>
+            <</link>>
+            <<if _recipes[_ridx].difficulty>>
+                <<skill Cooking _recipes[_ridx].difficulty>>
+            <</if>>
+        <</capture>>
+        <<dtime _time>>
+        <br>
+    <</for>>
+<</widget>>

@@ -48,6 +48,14 @@
             "passage": "PhoneMain",
             "findString": "<div class=\"phone-icons nokeys\">",
             "replace": "<<run _icons.push({name: '膳食记录',img: 'ico_phone_foodJournal',dialog:'SoLFoodJournal',wide: true})>><div class=\"phone-icons nokeys\">"
+        }, {
+            "passage": "GardeningWidgets",
+            "findString": "<<link \"收获\" GardeningHarvest>>",
+            "replace": "<<if !setup.dorm_has('minifridge')>><<link \"收获到食物储藏\" Greenhouse>><<set $pendingharvest to _plot>><<alterneed Relaxation _relax>><<alterneed Rest _rest>><<advtime _time Relaxation>><<run setup.SoL.GardeningHarvestCollect()>><</link>> <<dalterneed Relaxation _relax>> <<dalterneed Rest _rest>><br><</if>><<link \"收获并出售\" GardeningHarvest>>"
+        }, {
+            "passage": "DormFoodStash",
+            "findString": "<<dalterneed Bladder _amt>><</if>>\n        <br>",
+            "replace": "<<dalterneed Bladder _amt>><</if>>\n        <br><<SoLRecipeList _food>>"
         }]
     }, {
         "modName": "ReplacePatcher",
