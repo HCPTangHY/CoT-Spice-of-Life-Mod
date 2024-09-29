@@ -48,11 +48,15 @@
         <<set _linkname to "放入" + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
         <<if _foodobj.cooking>>
             <<set _time to 10>>
-            <<set _linkname to "制作" + (!window.modUtils.getMod('ModI18N')?_foodobj["cook into"]:setup.food[_foodobj["cook into"]].cn_name)>>
+            <<if _foodobj.cooking == 1>>
+                <<set _linkname to "烹饪" + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
+            <<else>>
+                <<set _linkname to "制作" + (!window.modUtils.getMod('ModI18N')?_foodobj["cook into"]:setup.food[_foodobj["cook into"]].cn_name)>>
+            <</if>>
         <</if>>
         <<set _found to true>>
         <<if setup.SoL.hasEmptySlot(_i) || setup.SoL.hasFoodEmptySlot(_food,_i)>>
-        <<set _linkfood to _foodobj.cooking?_foodobj["cook into"]:_food>>
+        <<set _linkfood to _foodobj.cooking&&_foodobj.cooking==2?_foodobj["cook into"]:_food>>
         <<capture _linkfood,_i>>
             <<if _hasIconMod>><<foodicon _linkfood>><</if>><<link _linkname SoLLunchItemsInventory>>
                 <<run setup.SoL.foodPutIn(_linkfood,_i)>>

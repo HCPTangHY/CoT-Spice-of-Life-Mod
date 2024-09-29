@@ -112,6 +112,7 @@ setup.SoL.foodHistoryAdd = function(food, hunger) {
     }
 }
 setup.SoL.foodEnergyCalc = function(food) {
+    if (!V.SoLFoodHistory) V.SoLFoodHistory = []
     let count = 0
     let hunger_count = 0
     let food_hunger_value = setup.food[food]["restore hunger"] || 0
