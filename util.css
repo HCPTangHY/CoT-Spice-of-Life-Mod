@@ -47,3 +47,130 @@
     margin-top: 40px;
     font-size: 10px;
 }
+
+.SoL_book {
+    width: 90vw;
+    max-width: 600px;
+    height: 80vw;
+    max-height: 400px;
+    display: flex;
+    background-color: #fef8ed;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.SoL_page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+}
+
+.SoL_left-page {
+    border-right: 2px solid #a0522d;
+}
+
+.SoL_border {
+    height: 20px;
+    background-image: repeating-linear-gradient( 45deg, #8b4513, #8b4513 10px, transparent 10px, transparent 20px);
+}
+
+.SoL_top {
+    align-self: flex-start;
+    width: 100%;
+}
+
+.SoL_bottom {
+    align-self: flex-end;
+    width: 100%;
+}
+
+.SoL_content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.SoL_page-header {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.SoL_recipe-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.SoL_recipe-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.SoL_food-icon,
+.SoL_utensil-icon {
+    font-size: 18px;
+    margin: 0 5px;
+    color: #464646;
+}
+
+.SoL_recipe-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.SoL_recipe-name {
+    flex-grow: 1;
+    color: #464646;
+    size: 20px;
+}
+
+.SoL_page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.SoL_arrow {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.SoL_page-number {
+    justify-self: middle;
+    font-size: 12px;
+    color: #464646;
+}
+
+@media (max-width: 600px) {
+    .SoL_book {
+        width: 95vw;
+        height: 85vw;
+    }
+    .SoL_page {
+        padding: 10px;
+    }
+    .SoL_border {
+        height: 15px;
+    }
+    .SoL_recipe-item {
+        font-size: 12px;
+    }
+    .SoL_food-icon,
+    .SoL_utensil-icon {
+        font-size: 14px;
+    }
+}

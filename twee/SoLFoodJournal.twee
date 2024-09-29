@@ -1,0 +1,29 @@
+:: SoLFoodJournal [dialog phonewide noevents nobr]
+<<set _hasIconMod to !(!window.modUtils.getMod('IconMod'))>>
+<<set _page = _page || 1>>
+<<set _page_content = setup.SoL.FoodJournalPage(_page)>>
+<div class="SoL_book">
+    <div class="SoL_page SoL_left-page">
+        <div class="SoL_border SoL_top"></div>
+        <div class="SoL_content">
+            <div class="SoL_page-header"><<link "< 返回">><<run setup.phone.open("PhoneMain")>><</link>></div>
+            <div class="SoL_recipe-list">
+            <<for _i to 0; _i lt _page_content.length; _i++>>
+                <div class="SoL_recipe-item">
+                    <<if _hasIconMod>><span class="SoL_food-icon"><<foodicon _page_content[_i].item>></span><</if>>
+                    <div class="SoL_recipe-info">
+                        <span class="SoL_recipe-name"><<= !window.modUtils.getMod('ModI18N')?_page_content[_i].item:setup.food[_page_content[_i].item].cn_name>></span>
+                        <span class="SoL_utensil-icon">🍖 x<<= _page_content[_i].hunger>>/<<= setup.food[_page_content[_i].item]["restore hunger"] || 0 >></span>
+                    </div>
+                </div>
+            <</for>>
+            </div>
+            <div class="SoL_page-footer">
+                <<if _page gt 1>><span class="SoL_arrow SoL_left-arrow"><<link "⬅️">><<set _page = _page - 1>><<run SugarCube.setup.open_dialog("SoLFoodJournal", "膳食记录", "phone-dialog-large")>><</link>></span><</if>>
+                <span class="SoL_page-number">_page / 3</span>
+                <<if _page lt 3>><span class="SoL_arrow SoL_right-arrow"><<link "➡️">><<set _page = _page + 1>><<run SugarCube.setup.open_dialog("SoLFoodJournal", "膳食记录", "phone-dialog-large")>><</link>></span><</if>>
+            </div>
+        </div>
+        <div class="SoL_border SoL_bottom"></div>
+    </div>
+</div>

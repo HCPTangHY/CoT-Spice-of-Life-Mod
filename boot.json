@@ -3,7 +3,7 @@
     "version": "PRE-0.0.1",
     "styleFileList": [],
     "scriptFileList": [
-        "SoL_database.js"
+        "SoL_base.js"
     ],
     "tweeFileList": [],
     "imgFileList": [],
@@ -44,6 +44,10 @@
             "passage": "InventorySnacks",
             "findString": "_foodobj[\"restore hunger\"]",
             "replace": "setup.SoL.foodEnergyCalc(_food)"
+        }, {
+            "passage": "PhoneMain",
+            "findString": "<div class=\"phone-icons nokeys\">",
+            "replace": "<<run _icons.push({name: '膳食记录',img: 'ico_phone_foodJournal',dialog:'SoLFoodJournal',wide: true})>><div class=\"phone-icons nokeys\">"
         }]
     }, {
         "modName": "ReplacePatcher",
@@ -61,10 +65,15 @@
                 "fileName": "shop.js"
             }, {
                 "from": "this.increase_need(\"Food\", foodobj[\"restore hunger\"]);",
-                "to": "this.increase_need(\"Food\", setup.SoL.foodEnergyCalc(food));setup.SoL.foodHistoryAdd(food,setup.SoL.foodEnergyCalc(food));",
+                "to": "let hunger = setup.SoL.foodEnergyCalc(food);this.increase_need(\"Food\", hunger);setup.SoL.foodHistoryAdd(food, hunger);",
                 "fileName": "needs.js"
             }]
         }
+    }, {
+        "modName": "ImageLoaderHook",
+        "addonName": "ImageLoaderAddon",
+        "modVersion": "^2.12.1",
+        "params": []
     }],
     "dependenceInfo": [{
         "modName": "TweeReplacer",
@@ -72,5 +81,8 @@
     }, {
         "modName": "ModLoader",
         "version": "^2.16.3"
+    }, {
+        "modName": "ModLoader ImageLoaderHookCore",
+        "version": "^2.12.1"
     }]
 }

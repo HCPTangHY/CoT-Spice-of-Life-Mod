@@ -21,7 +21,9 @@
                 <</capture>>
                 </div>
             <<else>>
-                <div class="SoL_item"><div class="SoL_item_amount"><<= _item.content.get(_j).amount>></div><<SoLContentItemIcon _item.content.get(_j).item>></div>
+                <div class="SoL_item"><div class="SoL_item_amount"><<= _item.content.get(_j).amount>></div>
+                <<set _func = "setup.SoL.foodTakeOut('"+_item.content.get(_j).item+"',"+_i+","+_j+");Engine.play('SoLLunchItemsInventory')">>
+                <div @onclick="_func"><<SoLContentItemIcon _item.content.get(_j).item>></div></div>
             <</if>>
         <<else>>
             <<if !_hasIconMod>>

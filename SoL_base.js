@@ -149,3 +149,8 @@ setup.SoL.eatMaxHungerFood = function(itemIndex, max_hunger_food) {
         setup.Needs.eat(slotContent.item);
     }
 }
+setup.SoL.FoodJournalPage = function(page) {
+    let result = V.SoLFoodHistory.slice((page - 1) * 5, page * 5);
+    T.page = page;
+    return result
+}
