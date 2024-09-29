@@ -3,6 +3,7 @@
 <<widget "SoLContentItemIcon">><<set _img to "res/img/iconmod/food/" + _args[0].replace(/ /g, "_") + ".png">><img class="SoL_item_icon" @src="_img"><</widget>>
 
 <<widget "SoLBoxLinkList">>
+<<if !$SoLLunchItems>><<set $SoLLunchItems to []>><</if>>
 <<for _i to 0; _i lt $SoLLunchItems.length; _i++>>
     <<set _item to $SoLLunchItems[_i]>>
     <<set _itemobj to setup.SoL.items[_item.item]>>
@@ -11,7 +12,7 @@
     <<set _now_passage to State.passage>>
     <<set _linkname to "使用"+_itemobj.name>>
     <<if _item.content.size gt 0>>
-    <<capture _i>>
+    <<capture _i,_max_hunger_food>>
         <<link _linkname _now_passage>><<run setup.SoL.eatMaxHungerFood(_i,_max_hunger_food)>><</link>>
     <</capture>><<dtime _time>>
     <<dalterneed Food _max_hunger_food.hunger>>

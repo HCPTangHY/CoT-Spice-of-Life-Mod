@@ -1,6 +1,6 @@
 {
     "name": "SpiceOfLife",
-    "version": "PRE-0.0.1",
+    "version": "PRE-0.0.2",
     "styleFileList": [],
     "scriptFileList": [
         "SoL_base.js"

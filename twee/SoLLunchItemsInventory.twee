@@ -1,6 +1,7 @@
 :: SoLLunchItemsInventory [event nobr]
 
 <<set _hasIconMod to !(!window.modUtils.getMod('IconMod'))>>
+<<if !$SoLLunchItems>><<set $SoLLunchItems to []>><</if>>
 <<for _i to 0; _i lt $SoLLunchItems.length; _i++>>
     <<set _item to $SoLLunchItems[_i]>>
     <<set _itemobj to setup.SoL.items[_item.item]>>
