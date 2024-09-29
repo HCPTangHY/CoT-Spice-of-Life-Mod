@@ -112,15 +112,18 @@ setup.SoL.foodHistoryAdd = function(food, hunger) {
     }
 }
 setup.SoL.foodEnergyCalc = function(food) {
-    if (!V.SoLFoodHistory) V.SoLFoodHistory = []
-    let count = 0
-    let hunger_count = 0
-    let food_hunger_value = setup.food[food]["restore hunger"] || 0
+    if (!V.SoLFoodHistory) V.SoLFoodHistory = [];
+    if (typeof food == "object") {
+        food = food.shopitem;
+    }
+    let count = 0;
+    let hunger_count = 0;
+    let food_hunger_value = setup.food[food]["restore hunger"] || 0;
     if (food_hunger_value == 0) return 0
     for (let i of V.SoLFoodHistory) {
         if (i.item == food) {
-            count += 1
-            hunger_count += i.hunger
+            count += 1;
+            hunger_count += i.hunger;
         }
     }
     return food_hunger_value * Math.max(0, (1 - count / 12)) ^ Math.min(8, food_hunger_value)
