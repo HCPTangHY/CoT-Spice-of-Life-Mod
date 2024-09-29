@@ -15,6 +15,7 @@
         <<link _linkname _now_passage>><<run setup.SoL.eatMaxHungerFood(_i,_max_hunger_food)>><</link>>
     <</capture>><<dtime _time>>
     <<dalterneed Food _max_hunger_food.hunger>>
+    <br>
     <</if>>
 <</for>>
 <</widget>>
