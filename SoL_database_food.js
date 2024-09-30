@@ -19,6 +19,16 @@ const food = {
         flags: [],
         cooking: -1
     },
+    "raw fish": {
+        cn_name: "生鱼肉",
+        "restore hunger": 100,
+        plumpness: 1,
+        "purchase quantity": 1,
+        price: 5,
+        aoran: "一些",
+        flags: [],
+        cooking: -1
+    },
     "tofu": {
         cn_name: "豆腐",
         "restore hunger": 100,
@@ -104,7 +114,6 @@ const food = {
         price: 5,
         aoran: "一块",
         flags: [],
-        cooking: -1
     },
     "salt": {
         cn_name: "盐",
@@ -153,6 +162,34 @@ const food = {
         aoran: "一瓶",
         flags: [],
         cooking: -1
+    },
+    // 成品
+    "mochi": {
+        cn_name: "麻薯",
+        "restore hunger": 200,
+        plumpness: 3,
+        "purchase quantity": 4,
+        price: 10,
+        aoran: "一个",
+        flags: [],
+    },
+    "taiyaki": {
+        cn_name: "鲷鱼烧",
+        "restore hunger": 200,
+        plumpness: 3,
+        "purchase quantity": 4,
+        price: 12,
+        aoran: "一个",
+        flags: [],
+    },
+    "trail mix": {
+        cn_name: "混合坚果",
+        "restore hunger": 800,
+        plumpness: 2,
+        "purchase quantity": 1,
+        price: 12,
+        aoran: "一份",
+        flags: [],
     }
 }
 const cookwear = {

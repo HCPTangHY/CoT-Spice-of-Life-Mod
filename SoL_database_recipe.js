@@ -43,7 +43,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 1,
     }, {
-        original: { "tomato": 1, "beef": 1 },
+        original: { "tomato": 1, "raw beef": 1 },
         target: "Beef stew with tomatoes",
         cn_name: "西红柿炖牛腩",
         targetObj: {
@@ -99,7 +99,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 1,
     }, {
-        original: { "tomato": 1, "pasta": 1, "parsley": 1, "pork": 1 },
+        original: { "tomato": 1, "pasta": 1, "parsley": 1, "raw pork": 1 },
         target: "Tomato bolognese pasta",
         cn_name: "番茄肉酱面",
         targetObj: {
@@ -141,7 +141,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 1,
     }, {
-        original: { "tomato": 1, "lettuce": 1, "eggs": 1, "pork": 1 },
+        original: { "tomato": 1, "lettuce": 1, "eggs": 1, "raw pork": 1 },
         target: "Lettuce Meat Rolls",
         cn_name: "生菜肉卷",
         targetObj: {
@@ -183,7 +183,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 1,
     }, {
-        original: { "tomato": 1, "carrot": 1, "potato": 1, "lettuce": 1, "beef": 1 },
+        original: { "tomato": 1, "carrot": 1, "potato": 1, "lettuce": 1, "raw beef": 1 },
         target: "Borscht",
         cn_name: "罗宋汤",
         targetObj: {
@@ -252,7 +252,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 1,
     }, {
-        original: { "cucumber": 1, "pork": 1 },
+        original: { "cucumber": 1, "raw pork": 1 },
         target: "Cucumber and Pork Stir-Fry",
         cn_name: "黄瓜钱炒肉",
         targetObj: {
@@ -266,7 +266,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 2,
     }, {
-        original: { "cucumber": 1, "beef": 1 },
+        original: { "cucumber": 1, "raw beef": 1 },
         target: "Cucumber and Beef Stir-Fry",
         cn_name: "小炒牛肉",
         targetObj: {
@@ -321,7 +321,7 @@ const recipe = [
             flags: []
         },
     }, {
-        original: { "eggplant": 1, "pork": 1 },
+        original: { "eggplant": 1, "raw pork": 1 },
         target: "Stuffed Eggplant",
         cn_name: "茄盒",
         targetObj: {
@@ -335,7 +335,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 2,
     }, {
-        original: { "eggplant": 1, "pork": 1, "potato": 1 },
+        original: { "eggplant": 1, "raw pork": 1, "potato": 1 },
         target: "Minced Meat, Potato, and Eggplant Stew",
         cn_name: "肉末土豆茄子煲",
         targetObj: {
@@ -368,7 +368,7 @@ const recipe = [
     },
     // 肉类
     {
-        original: { "beef": 1 },
+        original: { "raw beef": 1 },
         target: "minced beef",
         cn_name: "牛肉馅",
         targetObj: {
@@ -398,7 +398,7 @@ const recipe = [
         cookwear: "cutting board",
         difficulty: 1,
     }, {
-        original: { "pork": 1 },
+        original: { "raw pork": 1 },
         target: "raw bacon",
         cn_name: "生培根",
         targetObj: {
@@ -495,7 +495,7 @@ const recipe = [
         cookwear: "juicer",
         difficulty: 1
     }, {
-        original: { "pork": 1, "soy sauce": 1, "hoisin sauce": 1, "five spice": 1 },
+        original: { "raw pork": 1, "soy sauce": 1, "hoisin sauce": 1, "five spice": 1 },
         target: "Char Siu",
         cn_name: "叉烧",
         targetObj: {
@@ -508,6 +508,36 @@ const recipe = [
         time: 40,
         cookwear: "hot plate",
         difficulty: 3
+    },
+    {
+        original: { "raw beef": 1, "rice": 1, "onion": 1 },
+        target: "Gyudon",
+        cn_name: "肥牛饭",
+        targetObj: {
+            "restore hunger": 600,
+            plumpness: 3,
+            "purchase quantity": 1,
+            price: 20,
+            flags: ["meat"],
+        },
+        time: 20,
+        cookwear: "hot plate",
+        difficulty: 1
+    },
+    {
+        original: { "shrimp": 1, "flour": 1, "oil": 2 },
+        target: "Shrimp Tempura",
+        cn_name: "炸虾天妇罗",
+        targetObj: {
+            "restore hunger": 400,
+            plumpness: 2,
+            "purchase quantity": 1,
+            price: 10,
+            flags: [],
+        },
+        time: 10,
+        cookwear: "hot plate",
+        difficulty: 1
     },
     // 面食
     {
@@ -596,7 +626,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 2,
     }, {
-        original: { "wheat dough": 1, "cabbage": 1, "onion": 1, "pork": 1 },
+        original: { "wheat dough": 1, "cabbage": 1, "onion": 1, "raw pork": 1 },
         target: "pork dumplings",
         cn_name: "猪肉饺子",
         targetObj: {
@@ -610,7 +640,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 2,
     }, {
-        origin: { "wheat dough": 1, "scallion": 1, "pork": 1, "soy sauce": 1 },
+        origin: { "wheat dough": 1, "scallion": 1, "raw pork": 1, "soy sauce": 1 },
         target: "Wonton",
         cn_name: "馄饨",
         targetObj: {
@@ -659,6 +689,31 @@ const recipe = [
         time: 20,
         cookwear: "hot plate",
         difficulty: 2,
+    }, {
+        original: { "bread": 1, "cheese": 1, "butter": 1 },
+        target: "grilled cheese",
+        cn_name: "烤奶酪三明治",
+        targetObj: {
+            "restore hunger": 1300,
+            plumpness: 4,
+            "purchase quantity": 1,
+            price: 15,
+            flags: [],
+        },
+        time: 10,
+        cookwear: "hot plate",
+        difficulty: 1
+    }, {
+        original: { "flour": 1, "raw fish": 1, "fries": 1 },
+        target: "Fish and Chips",
+        cn_name: "炸鱼薯条",
+        targetObj: {
+            "restore hunger": 1100,
+            plumpness: 5,
+            "purchase quantity": 1,
+            price: 8,
+            flags: [],
+        }
     }
 ];
 
