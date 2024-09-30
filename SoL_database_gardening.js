@@ -82,6 +82,20 @@ const SoL_gardening = {
         "plumpness": 2,
         "purchase quantity": 1,
         flags: []
+    },
+    "scallion": {
+        type: "vegetable",
+        cn_name: "葱",
+        product: "葱",
+        basic: true,
+        growthTime: 60,
+        harvestAmount: 5,
+        harvestValue: 30,
+        difficulty: 2,
+        "restore hunger": 10,
+        "plumpness": 1,
+        "purchase quantity": 3,
+        flags: []
     }
 }
 

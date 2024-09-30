@@ -468,6 +468,46 @@ const recipe = [
         time: 10,
         cookwear: "hot plate",
         difficulty: 1,
+    }, {
+        original: { "carton of milk": 2 },
+        target: "butter",
+        cn_name: "黄油",
+        targetObj: {
+            plumpness: 3,
+            "purchase quantity": 5,
+            price: 5,
+            flags: [],
+            cooking: -1
+        },
+        time: 30,
+        cookwear: "hot plate",
+        difficulty: 1,
+    }, {
+        original: { "eggs": 2, "sugar": 1, "salt": 1, "oil": 1 },
+        target: "mayonaise",
+        targetObj: {
+            plumpness: 4,
+            "purchas quantity": 5,
+            price: 7,
+            flags: ["eggs"],
+        },
+        time: 10,
+        cookwear: "juicer",
+        difficulty: 1
+    }, {
+        original: { "pork": 1, "soy sauce": 1, "hoisin sauce": 1, "five spice": 1 },
+        target: "Char Siu",
+        cn_name: "叉烧",
+        targetObj: {
+            "restore hunger": 500,
+            plumpness: 5,
+            "purchase quantity": 1,
+            price: 20,
+            flags: ["meat"],
+        },
+        time: 40,
+        cookwear: "hot plate",
+        difficulty: 3
     },
     // 面食
     {
@@ -570,6 +610,20 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 2,
     }, {
+        origin: { "wheat dough": 1, "scallion": 1, "pork": 1, "soy sauce": 1 },
+        target: "Wonton",
+        cn_name: "馄饨",
+        targetObj: {
+            "restore hunger": 1000,
+            plumpness: 2,
+            "purchase quantity": 1,
+            price: 15,
+            flags: [],
+        },
+        tiem: 30,
+        cookwear: "hot plate",
+        difficulty: 1
+    }, {
         original: { "raw rice": 1 },
         target: "rice",
         cn_name: "米饭",
@@ -611,7 +665,7 @@ const recipe = [
 if (!("SoL" in setup)) setup.SoL = {};
 setup.SoL.recipes = { db: [], byTarget: {}, byFirstOriginal: {} };
 
-setup.SoL.recipesPush = function(r) {
+setup.SoL.recipesPush = function (r) {
     setup.SoL.recipes.db.push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookwear: r.cookwear });
     if (!setup.SoL.recipes.byTarget[r.target]) setup.SoL.recipes.byTarget[r.target] = { original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookwear: r.cookwear };
     let firstOriginal = Object.keys(r.original)[0];
@@ -620,7 +674,7 @@ setup.SoL.recipesPush = function(r) {
     if (!setup.food[r.target]) setup.food[r.target] = r.targetObj;
     setup.food[r.target].cn_name = r.cn_name;
 }
-setup.SoL.recipesPushList = function(list) {
+setup.SoL.recipesPushList = function (list) {
     for (let i = 0; i < list.length; i++) {
         setup.SoL.recipesPush(list[i]);
     }
