@@ -206,6 +206,13 @@ const cookwear = {
         cn_name: "榨汁机",
         add: "juicer",
         price: 50
+    },
+    "air fryer": {
+        category: "appliance",
+        description: "买了空气炸锅，家里就只剩下空气炸锅了。",
+        cn_name: "空气炸锅",
+        add: "air fryer",
+        price: 100
     }
 }
 

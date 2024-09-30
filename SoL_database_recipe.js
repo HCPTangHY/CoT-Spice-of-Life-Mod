@@ -538,6 +538,48 @@ const recipe = [
         time: 10,
         cookwear: "hot plate",
         difficulty: 1
+    }, {
+        original: { "flour": 1, "raw fish": 1, "fries": 1, "oil": 1 },
+        target: "Fish and Chips",
+        cn_name: "炸鱼薯条",
+        targetObj: {
+            "restore hunger": 1100,
+            plumpness: 5,
+            "purchase quantity": 1,
+            price: 8,
+            flags: [],
+        },
+        time: 10,
+        cookwear: "hot plate",
+        difficulty: 1,
+    }, {
+        original: { "eggs": 1 },
+        target: "boiled egg",
+        cn_name: "白煮蛋",
+        targetObj: {
+            "restore hunger": 200,
+            plumpness: 1,
+            "purchase quantity": 1,
+            price: 1,
+            flags: ["eggs"],
+        },
+        time: 5,
+        cookwear: "hot plate",
+        difficulty: 1,
+    }, {
+        original: { "raw chicken": 1, "oil": 3, "flour": 1 },
+        target: "fried chicken",
+        cn_name: "炸鸡",
+        targetObj: {
+            "restore hunger": 700,
+            plumpness: 4,
+            "purchase quantity": 1,
+            price: 7,
+            flags: ["meat"],
+        },
+        time: 10,
+        cookwear: "hot plate",
+        difficulty: 1,
     },
     // 面食
     {
@@ -640,7 +682,7 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 2,
     }, {
-        origin: { "wheat dough": 1, "scallion": 1, "raw pork": 1, "soy sauce": 1 },
+        original: { "wheat dough": 1, "scallion": 1, "raw pork": 1, "soy sauce": 1 },
         target: "Wonton",
         cn_name: "馄饨",
         targetObj: {
@@ -704,23 +746,42 @@ const recipe = [
         cookwear: "hot plate",
         difficulty: 1
     }, {
-        original: { "flour": 1, "raw fish": 1, "fries": 1 },
-        target: "Fish and Chips",
-        cn_name: "炸鱼薯条",
+        original: { "flour": 1, "salt": 1 },
+        target: "cracker",
+        cn_name: "薄脆饼干",
         targetObj: {
-            "restore hunger": 1100,
-            plumpness: 5,
+            "restore hunger": 400,
+            plumpness: 2,
             "purchase quantity": 1,
-            price: 8,
+            price: 5,
             flags: [],
-        }
+        },
+        time: 10,
+        cookwear: "air fryer",
+        difficulty: 2,
+    }, {
+        original: { "wheat dough": 1, "cream": 2, "chocolate": 1 },
+        target: "chocolate roll",
+        cn_name: "巧克力毛巾卷",
+        targetObj: {
+            "restore hunger": 800,
+            plumpness: 4,
+            "purchase quantity": 1,
+            price: 5,
+            flags: [],
+        },
+        time: 10,
+        cookwear: "hot plate",
+        difficulty: 3,
+    }, {
+
     }
 ];
 
 if (!("SoL" in setup)) setup.SoL = {};
 setup.SoL.recipes = { db: [], byTarget: {}, byFirstOriginal: {} };
 
-setup.SoL.recipesPush = function (r) {
+setup.SoL.recipesPush = function(r) {
     setup.SoL.recipes.db.push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookwear: r.cookwear });
     if (!setup.SoL.recipes.byTarget[r.target]) setup.SoL.recipes.byTarget[r.target] = { original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookwear: r.cookwear };
     let firstOriginal = Object.keys(r.original)[0];
@@ -729,7 +790,7 @@ setup.SoL.recipesPush = function (r) {
     if (!setup.food[r.target]) setup.food[r.target] = r.targetObj;
     setup.food[r.target].cn_name = r.cn_name;
 }
-setup.SoL.recipesPushList = function (list) {
+setup.SoL.recipesPushList = function(list) {
     for (let i = 0; i < list.length; i++) {
         setup.SoL.recipesPush(list[i]);
     }

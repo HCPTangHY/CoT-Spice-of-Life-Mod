@@ -144,7 +144,7 @@ const gardingFood = {
     }
 };
 
-setup.Gardening.db = Object.assign(setup.Gardening.db, SoL_gardening);
+Object.assign(setup.Gardening.db, SoL_gardening);
 for (let food in gardingFood) {
     let baseobj = setup.Gardening.db[food];
     setup.food[food] = Object.assign(baseobj, gardingFood[food]);
