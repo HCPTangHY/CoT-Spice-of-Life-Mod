@@ -190,6 +190,15 @@ const food = {
         price: 12,
         aoran: "一份",
         flags: [],
+    },
+    "apple": {
+        cn_name: "苹果",
+        "restore hunger": 400,
+        plumpness: 1,
+        "purchase quantity": 4,
+        price: 8,
+        aoran: "一份",
+        flags: [],
     }
 }
 const cookwear = {
