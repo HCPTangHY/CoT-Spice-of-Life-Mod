@@ -1,0 +1,15 @@
+:: SoLCookwearGUI [event nobr]
+
+<<set _cookwear to $SoLCookwearData["cookwear"]>>
+<<set _recipe to $SoLCookwearData["recipe"]>>
+<<set _itemobj to setup.dormstuff[_cookwear]>>
+<div class="shop-detailed-item rounded-border">
+    <div class="shop-item-header">
+        <div class="shop-item-name"><<= _itemobj.name>></div>
+    </div>
+    <<= _itemobj.description>>
+    <div class="SoL_item_container">
+    </div>
+</div>
+<<for _ridx to 0; _ridx lt $SoLRecip.length; _ridx++>><</for>>
+
