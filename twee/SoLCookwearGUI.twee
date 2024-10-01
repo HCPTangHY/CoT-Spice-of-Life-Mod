@@ -1,15 +1,56 @@
 :: SoLCookwearGUI [event nobr]
 
-<<set _cookwear to $SoLCookwearData["cookwear"]>>
+<<set _hasIconMod to !(!window.modUtils.getMod('IconMod'))>>
+<<set _cookware to $SoLCookwearData["cookware"]>>
 <<set _recipe to $SoLCookwearData["recipe"]>>
-<<set _itemobj to setup.dormstuff[_cookwear]>>
+<<set _itemobj to setup.dormstuff[_cookware]>>
+<div>
 <div class="shop-detailed-item rounded-border">
     <div class="shop-item-header">
-        <div class="shop-item-name"><<= _itemobj.name>></div>
+        <div class="shop-item-name"><<= !window.modUtils.getMod('ModI18N')?_cookware:_itemobj.cn_name>></div>
     </div>
     <<= _itemobj.description>>
     <div class="SoL_item_container">
+        <<if !_hasIconMod>>
+            <div class="SoL_item_text"></div>
+        <<else>>
+            <div class="SoL_item"></div>
+        <</if>>
     </div>
 </div>
-<<for _ridx to 0; _ridx lt $SoLRecip.length; _ridx++>><</for>>
+<div style="display:inline-flex;min-width: 8.5em;max-width: 13.5em;">
+    <div class="shop-detailed-item rounded-border" style="min-width: fit-content;max-width: 13.5em;">
+        <<if $dormfridge>>
+            <<set _dormitems to [...Object.keys(V.dormfoodstash), ...Object.keys(V.dormfridge)]>>
+        <<else>>
+            <<set _dormitems to Object.keys(V.dormfoodstash)>>
+        <</if>>
+        <<for _i to 0; _i lt _dormitems.length; _i++>>
+            <<set _food to _dormitems[_i]>>
+            <<set _foodobj to setup.food[_food]>>
+            <<set _linkname to !window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name>>
+            <<capture _food>>
+                <<if _hasIconMod>><<foodicon _food>><</if>>
+                <<link _linkname>><</link>>
+            <</capture>>
+            <br>
+        <</for>>
+    </div>
+    <div class="shop-detailed-item rounded-border" style="min-width: fit-content;max-width: 13.5em;">
+        <<set _recipes to setup.SoL.filterRecipe($SoLCookwearData.recipe)>>
+        <<for _ridx to 0; _ridx lt _recipes.length; _ridx++>>
+            <<set _recipe to _recipes[_ridx]>>
+            <<set _linkname to !window.modUtils.getMod('ModI18N')?_recipe.target:_recipe.target_cn_name>>
+            <<capture _recipe>>
+                <<if _hasIconMod>><<foodicon _recipe.target>><</if>>
+                <<link _linkname>><</link>>
+            <</capture>>
+            <br>
+        <</for>>
+    </div>
+</div>
+</div>
+<<for _ridx to 0; _ridx lt $SoLCookwearData.length; _ridx++>>
+
+<</for>>
 

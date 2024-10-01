@@ -201,3 +201,21 @@ setup.SoL.searchByFirst = function(food) {
     }
     return filtered;
 }
+
+setup.SoL.filterRecipe = function(recipes) {
+    let result = [];
+    for (let i of recipes) {
+        let allCheck = true;
+        for (let j of Object.keys(i.original)) {
+            if (j in V.dormfoodstash) {
+                if (V.dormfoodstash[j] < i.original[j]) allCheck = false;
+            } else if (j in V.dormfridge) {
+                if (V.dormfridge[j] < i.original[j]) allCheck = false;
+            } else {
+                allCheck = false;
+            }
+        }
+        if (allCheck) result.push(i);
+    }
+    return result;
+}

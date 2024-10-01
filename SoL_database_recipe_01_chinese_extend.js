@@ -1,4 +1,4 @@
-const recipe = [
+const recipe_01 = [
     // 西红柿
     {
         original: { "tomato": 1, "potato": 1 },
@@ -12,7 +12,7 @@ const recipe = [
             flags: []
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "raw beef": 1 },
@@ -26,7 +26,7 @@ const recipe = [
             flags: ["meat"]
         },
         time: 60,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "tomato": 1, "zucchini": 1 },
@@ -40,7 +40,7 @@ const recipe = [
             flags: []
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 2, "noodles": 1 },
@@ -54,7 +54,7 @@ const recipe = [
             flags: []
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "noodles": 2 },
@@ -68,7 +68,7 @@ const recipe = [
             flags: []
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "pasta": 1, "parsley": 1, "raw pork": 1 },
@@ -82,7 +82,7 @@ const recipe = [
             flags: ["meat"]
         },
         time: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "tomato": 1, "tofu": 1 },
@@ -96,7 +96,7 @@ const recipe = [
             flags: []
         },
         time: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "eggplant": 1, "noodles": 1 },
@@ -110,7 +110,7 @@ const recipe = [
             flags: []
         },
         time: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "lettuce": 1, "eggs": 1, "raw pork": 1 },
@@ -124,7 +124,7 @@ const recipe = [
             flags: ["meat"]
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "garlic": 1, "basil": 1, "pasta": 1 },
@@ -138,7 +138,7 @@ const recipe = [
             flags: []
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "cheese": 2, "eggs": 1 },
@@ -152,7 +152,7 @@ const recipe = [
             flags: ["eggs"]
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "carrot": 1, "potato": 1, "lettuce": 1, "raw beef": 1 },
@@ -179,7 +179,7 @@ const recipe = [
             flags: []
         },
         time: 5,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "cucumber": 2, "raw chicken": 1 },
@@ -193,7 +193,7 @@ const recipe = [
             flags: ["meat"]
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 3,
     }, {
         original: { "cucumber": 1, "Shrimp": 1, "eggs": 2 },
@@ -207,7 +207,7 @@ const recipe = [
             flags: ["eggs"]
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 3,
     }, {
         original: { "cucumber": 1, "eggs": 1 },
@@ -221,7 +221,7 @@ const recipe = [
             flags: ["eggs"]
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "cucumber": 1, "raw pork": 1 },
@@ -235,7 +235,7 @@ const recipe = [
             flags: ["meat"]
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "cucumber": 1, "raw beef": 1 },
@@ -249,7 +249,7 @@ const recipe = [
             flags: ["meat"]
         },
         time: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     },
     // 茄子
@@ -265,7 +265,7 @@ const recipe = [
             flags: []
         },
         time: 15,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "eggplant": 1 },
@@ -279,7 +279,7 @@ const recipe = [
             flags: []
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "eggplant": 1, "potato": 1, "bell pepper": 1 },
@@ -304,7 +304,7 @@ const recipe = [
             flags: ["meat"]
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "eggplant": 1, "raw pork": 1, "potato": 1 },
@@ -318,7 +318,29 @@ const recipe = [
             flags: ["meat"]
         },
         time: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     },
 ];
+
+if (!("SoL" in setup)) setup.SoL = {};
+if (!("recipes" in setup.SoL)) setup.SoL.recipes = { db: [], byTarget: {}, byFirstOriginal: {}, byCookware: {} };
+
+setup.SoL.recipesPush = function(r) {
+    setup.SoL.recipes.db.push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
+    if (!setup.SoL.recipes.byTarget[r.target]) setup.SoL.recipes.byTarget[r.target] = { original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware };
+    let firstOriginal = Object.keys(r.original)[0];
+    if (!setup.SoL.recipes.byFirstOriginal[firstOriginal]) setup.SoL.recipes.byFirstOriginal[firstOriginal] = [];
+    setup.SoL.recipes.byFirstOriginal[firstOriginal].push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
+    if (!setup.SoL.recipes.byCookware[r.cookware]) setup.SoL.recipes.byCookware[r.cookware] = [];
+    setup.SoL.recipes.byCookware[r.cookware].push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
+    if (!setup.food[r.target]) setup.food[r.target] = r.targetObj;
+    setup.food[r.target].cn_name = r.cn_name;
+}
+setup.SoL.recipesPushList = function(list) {
+    for (let i = 0; i < list.length; i++) {
+        setup.SoL.recipesPush(list[i]);
+    }
+}
+
+setup.SoL.recipesPushList(recipe_01);

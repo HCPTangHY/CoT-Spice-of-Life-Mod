@@ -12,7 +12,7 @@ const recipe = [
             flags: []
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "tomato": 1, "eggs": 1 },
@@ -26,7 +26,7 @@ const recipe = [
             flags: ["eggs"]
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     },
     // 卷心菜
@@ -43,7 +43,7 @@ const recipe = [
             cooking: -1
         },
         time: 2,
-        cookwear: "cutting board",
+        cookware: "cutting board",
         difficulty: 1,
     },
     // 肉类
@@ -60,7 +60,7 @@ const recipe = [
             cooking: -1
         },
         time: 5,
-        cookwear: "cutting board",
+        cookware: "cutting board",
         difficulty: 1,
     }, {
         original: { "raw chicken": 1 },
@@ -75,7 +75,7 @@ const recipe = [
             cooking: -1
         },
         time: 5,
-        cookwear: "cutting board",
+        cookware: "cutting board",
         difficulty: 1,
     }, {
         original: { "raw pork": 1 },
@@ -90,7 +90,7 @@ const recipe = [
             cooking: -1
         },
         time: 5,
-        cookwear: "cutting board",
+        cookware: "cutting board",
         difficulty: 1,
     }, {
         original: { "eggs": 1 },
@@ -104,7 +104,7 @@ const recipe = [
             flags: ["eggs"],
         },
         time: 7,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "minced beef": 1 },
@@ -118,7 +118,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "raw chicken cuts": 1 },
@@ -132,7 +132,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "raw bacon": 1 },
@@ -146,7 +146,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "carton of milk": 2 },
@@ -160,7 +160,7 @@ const recipe = [
             cooking: -1
         },
         time: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "eggs": 2, "sugar": 1, "salt": 1, "oil": 1 },
@@ -172,7 +172,7 @@ const recipe = [
             flags: ["eggs"],
         },
         time: 10,
-        cookwear: "juicer",
+        cookware: "juicer",
         difficulty: 1
     }, {
         original: { "raw pork": 1, "soy sauce": 1, "hoisin sauce": 1, "five spice": 1 },
@@ -186,7 +186,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 40,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 3
     },
     {
@@ -201,7 +201,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1
     },
     {
@@ -216,7 +216,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1
     }, {
         original: { "flour": 1, "raw fish": 1, "fries": 1, "oil": 1 },
@@ -230,7 +230,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "eggs": 1 },
@@ -244,7 +244,7 @@ const recipe = [
             flags: ["eggs"],
         },
         time: 5,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "raw chicken": 1, "oil": 3, "flour": 1 },
@@ -258,7 +258,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     },
     // 面食
@@ -275,7 +275,7 @@ const recipe = [
             cooking: -1
         },
         time: 5,
-        cookwear: "cutting board",
+        cookware: "cutting board",
         difficulty: 1,
     }, {
         original: { "wheat dough": 1, "carton of milk": 1, "chocolate": 2 },
@@ -289,7 +289,7 @@ const recipe = [
             flags: [],
         },
         time: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 3,
     }, {
         original: { "toast": 1, "fried eggs": 2 },
@@ -303,7 +303,7 @@ const recipe = [
             flags: ["eggs"],
         },
         time: 5,
-        cookwear: "cutting board",
+        cookware: "cutting board",
         difficulty: 1,
     }, {
         original: { "bread": 1, "raw chicken": 1, "cabbage leaf": 1, "tomato": 1 },
@@ -317,7 +317,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 5,
-        cookwear: "cutting board",
+        cookware: "cutting board",
         difficulty: 2,
     }, {
         original: { "wheat dough": 1, "cabbage": 1, "onion": 1, "raw chicken cuts": 1 },
@@ -331,7 +331,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "wheat dough": 1, "cabbage": 1, "onion": 1, "minced beef": 1 },
@@ -345,7 +345,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "wheat dough": 1, "cabbage": 1, "onion": 1, "raw pork": 1 },
@@ -359,7 +359,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "wheat dough": 1, "scallion": 1, "raw pork": 1, "soy sauce": 1 },
@@ -373,7 +373,7 @@ const recipe = [
             flags: [],
         },
         tiem: 30,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1
     }, {
         original: { "raw rice": 1 },
@@ -387,7 +387,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "rice": 1, "eggs": 1, "carrot": 1, "onion": 1 },
@@ -395,7 +395,7 @@ const recipe = [
         cn_name: "炒饭",
         targetObj: {},
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "pasta": 1, "tomato sauce": 1, "minced beef": 1 },
@@ -409,7 +409,7 @@ const recipe = [
             flags: ["meat"],
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 2,
     }, {
         original: { "bread": 1, "cheese": 1, "butter": 1 },
@@ -423,7 +423,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1
     }, {
         original: { "flour": 1, "salt": 1 },
@@ -437,7 +437,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "air fryer",
+        cookware: "air fryer",
         difficulty: 2,
     }, {
         original: { "wheat dough": 1, "cream": 2, "chocolate": 1 },
@@ -451,7 +451,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 3,
     }, {
         original: { "wheat dough": 1, "apple": 1, "sugar": 1 },
@@ -465,7 +465,7 @@ const recipe = [
             flags: [],
         },
         time: 20,
-        cookwear: "air fryer",
+        cookware: "air fryer",
         difficulty: 2,
     }, {
         original: { "sugar": 1, "carton of milk": 1 },
@@ -479,7 +479,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "caramel": 1, "apple": 1 },
@@ -493,7 +493,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "wheat dough": 1, "oil": 1 },
@@ -507,7 +507,7 @@ const recipe = [
             flags: [],
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "wheat dough": 1, "oil": 1, "chocolate": 1 },
@@ -521,7 +521,7 @@ const recipe = [
             flags: [],
         },
         time: 20,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     },
     // 其他
@@ -537,7 +537,7 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "hot plate",
+        cookware: "hot plate",
         difficulty: 1,
     }, {
         original: { "apple": 2 },
@@ -551,24 +551,26 @@ const recipe = [
             flags: [],
         },
         time: 10,
-        cookwear: "juicer",
+        cookware: "juicer",
         difficulty: 1,
     }
 ];
 
 if (!("SoL" in setup)) setup.SoL = {};
-setup.SoL.recipes = { db: [], byTarget: {}, byFirstOriginal: {} };
+if (!("recipes" in setup.SoL)) setup.SoL.recipes = { db: [], byTarget: {}, byFirstOriginal: {}, byCookware: {} };
 
-setup.SoL.recipesPush = function (r) {
-    setup.SoL.recipes.db.push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookwear: r.cookwear });
-    if (!setup.SoL.recipes.byTarget[r.target]) setup.SoL.recipes.byTarget[r.target] = { original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookwear: r.cookwear };
+setup.SoL.recipesPush = function(r) {
+    setup.SoL.recipes.db.push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
+    if (!setup.SoL.recipes.byTarget[r.target]) setup.SoL.recipes.byTarget[r.target] = { original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware };
     let firstOriginal = Object.keys(r.original)[0];
     if (!setup.SoL.recipes.byFirstOriginal[firstOriginal]) setup.SoL.recipes.byFirstOriginal[firstOriginal] = [];
-    setup.SoL.recipes.byFirstOriginal[firstOriginal].push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookwear: r.cookwear });
+    setup.SoL.recipes.byFirstOriginal[firstOriginal].push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
+    if (!setup.SoL.recipes.byCookware[r.cookware]) setup.SoL.recipes.byCookware[r.cookware] = [];
+    setup.SoL.recipes.byCookware[r.cookware].push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
     if (!setup.food[r.target]) setup.food[r.target] = r.targetObj;
     setup.food[r.target].cn_name = r.cn_name;
 }
-setup.SoL.recipesPushList = function (list) {
+setup.SoL.recipesPushList = function(list) {
     for (let i = 0; i < list.length; i++) {
         setup.SoL.recipesPush(list[i]);
     }

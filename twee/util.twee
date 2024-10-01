@@ -23,12 +23,12 @@
 
 <<widget "SoLCookwearList">>
     <<set _hasIconMod to !(!window.modUtils.getMod('IconMod'))>>
-    <<set _cookwears = setup.dorm_category_items("appliance")>>
-    <<for _cidx to 0; _cidx lt _cookwears.length; _cidx++>>
-        <<set _linkname to _cookwears[_cidx].name>>
+    <<set _cookwares = setup.dorm_category_items("appliance")>>
+    <<for _cidx to 0; _cidx lt _cookwares.length; _cidx++>>
+        <<set _linkname to "使用"+(!window.modUtils.getMod('ModI18N')?_cookwares[_cidx].item:setup.dormstuff[_cookwares[_cidx].item].cn_name)>>
         <<capture _cidx>>
         <<link _linkname "SoLCookwearGUI">>
-            <<set $SoLCookwearData to {"cookwear":_cookwears[_cidx].item,"recipe":setup.SoL.searchByCookware(_cookwears[_cidx].item)}>>
+            <<set $SoLCookwearData to {"cookware":_cookwares[_cidx].item,"recipe":setup.SoL.recipes.byCookware[_cookwares[_cidx].item]}>>
         <</link>>
         <</capture>>
         <br>

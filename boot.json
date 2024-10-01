@@ -54,8 +54,8 @@
             "replace": "<<if !setup.dorm_has('minifridge')>><<link \"收获到食物储藏\" Greenhouse>><<set $pendingharvest to _plot>><<alterneed Relaxation _relax>><<alterneed Rest _rest>><<advtime _time Relaxation>><<run setup.SoL.GardeningHarvestCollect()>><</link>> <<dalterneed Relaxation _relax>> <<dalterneed Rest _rest>><br><</if>><<link \"收获并出售\" GardeningHarvest>>"
         }, {
             "passage": "DormFoodStash",
-            "findString": "<<dalterneed Bladder _amt>><</if>>\n        <br>",
-            "replace": "<<dalterneed Bladder _amt>><</if>>\n        <br><<SoLRecipeList _food>>"
+            "findString": "<</for>>",
+            "replace": "<</for>><br><<SoLCookwearList>>"
         }]
     }, {
         "modName": "ReplacePatcher",
