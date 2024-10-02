@@ -165,6 +165,7 @@ const recipe = [
     }, {
         original: { "eggs": 2, "sugar": 1, "salt": 1, "oil": 1 },
         target: "mayonaise",
+        cn_name: "蛋黄酱",
         targetObj: {
             plumpness: 4,
             "purchas quantity": 5,
