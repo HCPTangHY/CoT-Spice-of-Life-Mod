@@ -28,7 +28,7 @@
         <<set _linkname to "使用"+(!window.modUtils.getMod('ModI18N')?_cookwares[_cidx].item:setup.dormstuff[_cookwares[_cidx].item].cn_name)>>
         <<capture _cidx>>
         <<link _linkname "SoLCookwearGUI">>
-            <<set $SoLCookwearData to {"cookware":_cookwares[_cidx].item,"recipe":setup.SoL.recipes.byCookware[_cookwares[_cidx].item]}>>
+            <<set $SoLCookwearData to {"cookware":_cookwares[_cidx].item,"recipe":setup.SoL.recipes.byCookware[_cookwares[_cidx].item] || []}>>
         <</link>>
         <</capture>>
         <br>

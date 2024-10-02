@@ -220,29 +220,42 @@ setup.SoL.filterRecipe = function(recipes) {
     return result;
 }
 setup.SoL.cookWarePutIn = function(food) {
-    let container = $(".SoL-item-container");
-    let targetFood = $("#food-"+food);
-    let targetFoodAmount = $("#food-amount-"+food).innerHTML;
-    targetFoodAmount = parseInt(targetFoodAmount);
-    targetFoodAmount -= 1;
-    if (targetFoodAmount <= 0) {
-        targetFood.remove();
-    } else {
-        $("#food-amount-"+food).innerHTML = targetFoodAmount;
+    let container = $(".SoL_item_container");
+    let targetFood = $("#food-" + food.replace(/ /g, '_'));
+
+    function targetFoodAmountReduce() {
+        let targetFoodAmount = $("#foodamount-" + food.replace(/ /g, '_')).text();
+        targetFoodAmount = parseInt(targetFoodAmount);
+        targetFoodAmount -= 1;
+        if (targetFoodAmount <= 0) {
+            targetFood.remove();
+        } else {
+            $("#foodamount-" + food.replace(/ /g, '_')).text(targetFoodAmount);
+        }
     }
-    if (T.hasIconMod){
-        container.prepend(Wikifier.wikifyEval(`
-            <div class="SoL_item"><div class="SoL_item_amount"></div>
-            <div class="SoL_item_icon"><<set _func = "">>
-            <div @onclick="_func"><<SoLContentItemIcon ${food}>></div></div>
-            `));
+    let itemname = !window.modUtils.getMod('ModI18N') ? food : setup.food[food].name;
+    let innerFood = container.find("#itemInner-" + food.replace(/ /g, '_'));
+    if (innerFood.length == 0) {
+        if (container.find(".SoL_item").length == 10) return;
+        if (T.hasIconMod) {
+            if (container.find(".SoL_item").length == 9) { $(".SoL_item:last").hide() }
+            container.prepend(Wikifier.wikifyEval(`
+                <div class="SoL_item"><div class="SoL_item_amount" id="itemInner-${food.replace(/ /g, '_')}"></div><div class="SoL_item_icon"><<set _func = "">><div @onclick="_func"><<SoLContentItemIcon '${food}'>></div></div>
+                `));
+        } else {
+            if (container.find(".SoL_item_text").length == 9) { $(".SoL_item_text:last").hide() }
+            container.prepend(Wikifier.wikifyEval(`
+                <div class="SoL_item_text" style="display:inline-flex;"><<link ${itemname}>><</link>> x<div id="itemInner-${_food.replace(/ /g,'_')}"></div></div>
+                `));
+        }
+        targetFoodAmountReduce()
     } else {
-        let itemname = !window.modUtils.getMod('ModI18N')?food:setup.food[food].name;
-        container.prepend(Wikifier.wikifyEval(`
-            <div class="SoL_item_text">
-            <<link ${itemname}>><</link>>
-            </div>
-            `));
+        let innerAmount = innerFood.text() || 1;
+        if (T.hasIconMod) {
+            $("#itemInner-" + food.replace(/ /g, '_')).text(parseInt(innerAmount) + 1);
+        } else {
+            $("#itemInner-" + food.replace(/ /g, '_')).text(parseInt(innerAmount) + 1);
+        }
+        targetFoodAmountReduce()
     }
 }
-    
