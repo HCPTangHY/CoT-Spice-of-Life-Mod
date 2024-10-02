@@ -219,3 +219,30 @@ setup.SoL.filterRecipe = function(recipes) {
     }
     return result;
 }
+setup.SoL.cookWarePutIn = function(food) {
+    let container = $(".SoL-item-container");
+    let targetFood = $("#food-"+food);
+    let targetFoodAmount = $("#food-amount-"+food).innerHTML;
+    targetFoodAmount = parseInt(targetFoodAmount);
+    targetFoodAmount -= 1;
+    if (targetFoodAmount <= 0) {
+        targetFood.remove();
+    } else {
+        $("#food-amount-"+food).innerHTML = targetFoodAmount;
+    }
+    if (T.hasIconMod){
+        container.prepend(Wikifier.wikifyEval(`
+            <div class="SoL_item"><div class="SoL_item_amount"></div>
+            <div class="SoL_item_icon"><<set _func = "">>
+            <div @onclick="_func"><<SoLContentItemIcon ${food}>></div></div>
+            `));
+    } else {
+        let itemname = !window.modUtils.getMod('ModI18N')?food:setup.food[food].name;
+        container.prepend(Wikifier.wikifyEval(`
+            <div class="SoL_item_text">
+            <<link ${itemname}>><</link>>
+            </div>
+            `));
+    }
+}
+    

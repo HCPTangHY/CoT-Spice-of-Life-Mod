@@ -29,11 +29,14 @@
             <<set _food to _dormitems[_i]>>
             <<set _foodobj to setup.food[_food]>>
             <<set _linkname to !window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name>>
+            <div @id="food-_food">
             <<capture _food>>
                 <<if _hasIconMod>><<foodicon _food>><</if>>
-                <<link _linkname>><</link>>
+                <<link _linkname>><<run setup.SoL.cookWarePutIn(_food)>><</link>>
             <</capture>>
+            x <div @id="foodamount-_food"><<= ($dormfoodstash[_food] || $dormfridge[_food])>></div>
             <br>
+            </div>
         <</for>>
     </div>
     <div class="shop-detailed-item rounded-border" style="min-width: fit-content;max-width: 13.5em;">
@@ -45,6 +48,7 @@
                 <<if _hasIconMod>><<foodicon _recipe.target>><</if>>
                 <<link _linkname>><</link>>
             <</capture>>
+            <<dtime _recipe.time>> 
             <br>
         <</for>>
     </div>
