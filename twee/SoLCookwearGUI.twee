@@ -17,10 +17,11 @@
             <div class="SoL_item"></div>
         <</if>>
     </div>
+    <div id="Sol_cookware_result"></div>
 </div>
 <div style="display:inline-flex;min-width: 8.5em;max-width: 13.5em;">
     <div class="shop-detailed-item rounded-border" id="SoL_ingredient" style="min-width: fit-content;max-width: 13.5em;">
-        原料食材：
+        原料食材：<br>
         <<if $dormfridge>>
             <<set _dormitems to [...Object.keys(V.dormfoodstash), ...Object.keys(V.dormfridge)]>>
         <<else>>
@@ -33,7 +34,7 @@
             <div @id="'food-'+_food.replace(/ /g,'_')" style="display:inline-flex;">
             <<capture _food>>
                 <<if _hasIconMod>><<foodicon _food>><</if>>
-                <<link _linkname>><<run setup.SoL.cookWarePutIn(_food)>><</link>>
+                <<link _linkname>><<run setup.SoL.cookwarePutIn(_food)>><</link>>
             <</capture>>
             x <div @id="'foodamount-'+_food.replace(/ /g,'_')"><<= ($dormfoodstash[_food] || $dormfridge[_food])>></div>
             <br>
@@ -41,7 +42,7 @@
         <</for>>
     </div>
     <div class="shop-detailed-item rounded-border" style="min-width: fit-content;max-width: 13.5em;">
-        菜谱制作：
+        菜谱制作：<br>
         <<set _recipes to setup.SoL.filterRecipe($SoLCookwearData.recipe)>>
         <<for _ridx to 0; _ridx lt _recipes.length; _ridx++>>
             <<set _recipe to _recipes[_ridx]>>
