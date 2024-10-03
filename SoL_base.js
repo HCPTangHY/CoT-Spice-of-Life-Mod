@@ -18,7 +18,7 @@ setup.SoL.items = {
     }
 }
 
-setup.SoL.itemHas = function(item) {
+setup.SoL.itemHas = function (item) {
     if (!V.SoLLunchItems) {
         V.SoLLunchItems = []
     }
@@ -27,7 +27,7 @@ setup.SoL.itemHas = function(item) {
     }
     return false
 }
-setup.SoL.itemPurchase = function(item) {
+setup.SoL.itemPurchase = function (item) {
     if (setup.SoL.itemHas(item)) return false
     if (!V.SoLLunchItems) {
         V.SoLLunchItems = []
@@ -37,7 +37,7 @@ setup.SoL.itemPurchase = function(item) {
     }
     V.SoLLunchItems.push({ "item": item, content: new Map() })
 }
-setup.SoL.hasEmptySlot = function(itemIndex) {
+setup.SoL.hasEmptySlot = function (itemIndex) {
     if (!V.SoLLunchItems) {
         V.SoLLunchItems = []
     }
@@ -46,7 +46,7 @@ setup.SoL.hasEmptySlot = function(itemIndex) {
     }
     return false;
 }
-setup.SoL.hasFoodEmptySlot = function(food, itemIndex) {
+setup.SoL.hasFoodEmptySlot = function (food, itemIndex) {
     if (!V.SoLLunchItems) {
         V.SoLLunchItems = []
     }
@@ -56,7 +56,7 @@ setup.SoL.hasFoodEmptySlot = function(food, itemIndex) {
     }
     return false;
 }
-setup.SoL.foodPutIn = function(food, itemIndex) {
+setup.SoL.foodPutIn = function (food, itemIndex) {
     if (!V.SoLLunchItems) {
         V.SoLLunchItems = []
     }
@@ -75,7 +75,7 @@ setup.SoL.foodPutIn = function(food, itemIndex) {
     }
     return false;
 }
-setup.SoL.foodTakeOut = function(food, itemIndex, slotIndex) {
+setup.SoL.foodTakeOut = function (food, itemIndex, slotIndex) {
     if (!V.SoLLunchItems) {
         V.SoLLunchItems = []
     }
@@ -90,7 +90,7 @@ setup.SoL.foodTakeOut = function(food, itemIndex, slotIndex) {
     }
     return false;
 }
-setup.SoL.foodEat = function(itemIndex, slotIndex) {
+setup.SoL.foodEat = function (itemIndex, slotIndex) {
     if (!V.SoLLunchItems) {
         V.SoLLunchItems = []
     }
@@ -102,7 +102,7 @@ setup.SoL.foodEat = function(itemIndex, slotIndex) {
     }
     return false;
 }
-setup.SoL.foodHistoryAdd = function(food, hunger) {
+setup.SoL.foodHistoryAdd = function (food, hunger) {
     if (!V.SoLFoodHistory) {
         V.SoLFoodHistory = []
     }
@@ -111,7 +111,7 @@ setup.SoL.foodHistoryAdd = function(food, hunger) {
         V.SoLFoodHistory.shift()
     }
 }
-setup.SoL.foodEnergyCalc = function(food) {
+setup.SoL.foodEnergyCalc = function (food) {
     if (!V.SoLFoodHistory) V.SoLFoodHistory = [];
     if (typeof food == "object") {
         food = food.shopitem;
@@ -128,7 +128,7 @@ setup.SoL.foodEnergyCalc = function(food) {
     }
     return food_hunger_value * Math.max(0, (1 - count / 12)) ^ Math.min(8, food_hunger_value)
 }
-setup.SoL.findMaxHungerFood = function(itemIndex) {
+setup.SoL.findMaxHungerFood = function (itemIndex) {
     let max_hunger_food = { slot: -1, hunger: 0 }
     if (!V.SoLLunchItems) V.SoLLunchItems = []
     if (!V.SoLFoodHistory) V.SoLFoodHistory = []
@@ -143,7 +143,7 @@ setup.SoL.findMaxHungerFood = function(itemIndex) {
     }
     return max_hunger_food
 }
-setup.SoL.eatMaxHungerFood = function(itemIndex, max_hunger_food) {
+setup.SoL.eatMaxHungerFood = function (itemIndex, max_hunger_food) {
     if (max_hunger_food.slot >= 0) {
         let slotContent = V.SoLLunchItems[itemIndex].content.get(max_hunger_food.slot);
         V.SoLLunchItems[itemIndex].content.set(max_hunger_food.slot, { item: slotContent.item, amount: slotContent.amount - 1 });
@@ -153,13 +153,13 @@ setup.SoL.eatMaxHungerFood = function(itemIndex, max_hunger_food) {
         setup.Needs.eat(slotContent.item);
     }
 }
-setup.SoL.FoodJournalPage = function(page) {
+setup.SoL.FoodJournalPage = function (page) {
     if (!V.SoLFoodHistory) V.SoLFoodHistory = []
     let result = V.SoLFoodHistory.slice((page - 1) * 5, page * 5);
     T.page = page;
     return result
 }
-setup.SoL.GardeningHarvestCollect = function() {
+setup.SoL.GardeningHarvestCollect = function () {
     let plot = V.pendingharvest;
     let seed = V.gardening[plot].plant;
     delete V.pendingharvest;
@@ -185,7 +185,7 @@ setup.SoL.GardeningHarvestCollect = function() {
 
 // recipe
 
-setup.SoL.searchByFirst = function(food) {
+setup.SoL.searchByFirst = function (food) {
     let result = [];
     if (!(food in setup.SoL.recipes.byFirstOriginal)) return [];
     for (let i in setup.SoL.recipes.byFirstOriginal[food]) {
@@ -202,7 +202,7 @@ setup.SoL.searchByFirst = function(food) {
     return filtered;
 }
 
-setup.SoL.filterRecipe = function(recipes) {
+setup.SoL.filterRecipe = function (recipes) {
     let result = [];
     for (let i of recipes) {
         let allCheck = true;
@@ -219,7 +219,7 @@ setup.SoL.filterRecipe = function(recipes) {
     }
     return result;
 }
-setup.SoL.cookWarePutIn = function(food) {
+setup.SoL.cookWarePutIn = function (food) {
     let container = $(".SoL_item_container");
     let targetFood = $("#food-" + food.replace(/ /g, '_'));
 
@@ -245,7 +245,7 @@ setup.SoL.cookWarePutIn = function(food) {
         } else {
             if (container.find(".SoL_item_text").length == 9) { $(".SoL_item_text:last").hide() }
             container.prepend(Wikifier.wikifyEval(`
-                <div class="SoL_item_text" style="display:inline-flex;"><<link ${itemname}>><</link>> x<div id="itemInner-${_food.replace(/ /g,'_')}"></div></div>
+                <div class="SoL_item_text" style="display:inline-flex;"><<link ${itemname}>><</link>> x<div id="itemInner-${_food.replace(/ /g, '_')}"></div></div>
                 `));
         }
         targetFoodAmountReduce()
@@ -257,5 +257,38 @@ setup.SoL.cookWarePutIn = function(food) {
             $("#itemInner-" + food.replace(/ /g, '_')).text(parseInt(innerAmount) + 1);
         }
         targetFoodAmountReduce()
+    }
+}
+setup.SoL.cookWareTakeOut = function (food) {
+    let container = $(".SoL_item_container");
+    let targetFood = $("#food-" + food.replace(/ /g, '_'));
+    let innerFood = container.find("#itemInner-" + food.replace(/ /g, '_'));
+    if (innerFood.length == 0) return;
+    let innerAmount = innerFood.text() || 1;
+    if (T.hasIconMod) {
+        $("#itemInner-" + food.replace(/ /g, '_')).text(parseInt(innerAmount) - 1);
+    } else {
+        $("#itemInner-" + food.replace(/ /g, '_')).text(parseInt(innerAmount) - 1);
+    }
+    if (parseInt(innerAmount) == 1) {
+        innerFood.parent().remove();
+    }
+    if (container.find(".SoL_item_text").length < 10) {
+        $(".SoL_item_text:last").show()
+    }
+    let targetFoodAmount = $("#foodamount-" + food.replace(/ /g, '_')).text();
+    if (targetFoodAmount) {
+        targetFoodAmount = parseInt(targetFoodAmount);
+        targetFoodAmount += 1;
+        $("#foodamount-" + food.replace(/ /g, '_')).text(targetFoodAmount);
+    } else {
+        $("#SoL_ingredient").append(Wikifier.wikifyEval(`
+            <div id="food-${food.replace(/ /g, '_')}" style="display:inline-flex;">
+            ${T.hasIconMod ? "<<foodicon " + food + ">>" : ""}
+            <<link ${!window.modUtils.getMod('ModI18N') ? food : setup.food[food].cn_name}>><<run setup.SoL.cookWarePutIn(_food)>><</link>>
+        x <div id="foodamount-${food.replace(/ /g, '_')}">1</div>
+        <br>
+        </div>
+            `.replace(/\n/g, '')));
     }
 }
