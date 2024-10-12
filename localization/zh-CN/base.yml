@@ -1,0 +1,27 @@
+﻿zh-CN:
+ GUI.back: < 返回
+ GUI.complete: 完成
+ Shop.HaveItem: （你已经拥有这个了。）
+ Shop.BuyDesc: 以放置你的食物。
+ Gardening.Harvest: 收获
+ Gardening.HarvestDorm: 收获到食物储藏
+ Gardering.HarvestSale: 收获并出售
+ Gardening.GardeningHarvestCollectReturn1: 你收获了
+ Gardening.GardeningHarvestCollectReturn2: 个
+
+ SoL.ManageItem: 管理你的餐盒
+ SoL.MealRecords: 膳食记录
+ SoL.LuncItemGui.TakeOut: 点击物品以取出。
+ SoL.LuncItemGui.Empty: 空
+ SoL.LuncItemGui.PutIn: 放入
+ SoL.LuncItemGui.Cook1: 烹饪
+ SoL.LuncItemGui.Cook2: 制作
+ Item.LunchBox: 餐盒
+ Item.LunchBoxDesc: 可以装食物的盒子。有六个位置，每个位置能放置两个同种食物。
+ Item.LunchBag: 餐袋
+ Item.LunchBagDesc: 可以装食物的袋子。有三个位置，每个位置能放置两个同种食物。
+
+ Cook.CookingLink: 烹饪：
+ Cook.CookwareGui.use: 使用
+ Cook.CookwareGui.Ingredients: 原料食材：
+ Cook.CookwareGui.Recipe: 菜谱制作：

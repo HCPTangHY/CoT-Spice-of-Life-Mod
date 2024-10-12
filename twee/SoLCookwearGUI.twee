@@ -21,7 +21,7 @@
 </div>
 <div style="display:inline-flex;min-width: 8.5em;max-width: 13.5em;">
     <div class="shop-detailed-item rounded-border" id="SoL_ingredient" style="min-width: fit-content;max-width: 13.5em;">
-        原料食材：<br>
+        <<= L('Cook.CookwareGui.Ingredients')>><br>
         <<if $dormfridge>>
             <<set _dormitems to [...Object.keys(V.dormfoodstash), ...Object.keys(V.dormfridge)]>>
         <<else>>
@@ -42,7 +42,7 @@
         <</for>>
     </div>
     <div class="shop-detailed-item rounded-border" style="min-width: fit-content;max-width: 13.5em;">
-        菜谱制作：<br>
+        <<= L('Cook.CookwareGui.Recipe')>><br>
         <<set _recipes to setup.SoL.filterRecipe($SoLCookwearData.recipe)>>
         <<for _ridx to 0; _ridx lt _recipes.length; _ridx++>>
             <<set _recipe to _recipes[_ridx]>>
@@ -60,4 +60,5 @@
 <<for _ridx to 0; _ridx lt $SoLCookwearData.length; _ridx++>>
 
 <</for>>
-
+<br>
+<<link L('GUI.complete') DormFoodStash>><<run delete $SoLCookwearData>><</link>>

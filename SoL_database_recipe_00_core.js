@@ -557,24 +557,4 @@ const recipe = [
     }
 ];
 
-if (!("SoL" in setup)) setup.SoL = {};
-if (!("recipes" in setup.SoL)) setup.SoL.recipes = { db: [], byTarget: {}, byFirstOriginal: {}, byCookware: {} };
-
-setup.SoL.recipesPush = function(r) {
-    setup.SoL.recipes.db.push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
-    if (!setup.SoL.recipes.byTarget[r.target]) setup.SoL.recipes.byTarget[r.target] = { original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware };
-    let firstOriginal = Object.keys(r.original)[0];
-    if (!setup.SoL.recipes.byFirstOriginal[firstOriginal]) setup.SoL.recipes.byFirstOriginal[firstOriginal] = [];
-    setup.SoL.recipes.byFirstOriginal[firstOriginal].push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
-    if (!setup.SoL.recipes.byCookware[r.cookware]) setup.SoL.recipes.byCookware[r.cookware] = [];
-    setup.SoL.recipes.byCookware[r.cookware].push({ original: r.original, target: r.target, target_cn_name: r.cn_name, time: r.time, difficulty: r.difficulty, cookware: r.cookware });
-    if (!setup.food[r.target]) setup.food[r.target] = r.targetObj;
-    setup.food[r.target].cn_name = r.cn_name;
-}
-setup.SoL.recipesPushList = function(list) {
-    for (let i = 0; i < list.length; i++) {
-        setup.SoL.recipesPush(list[i]);
-    }
-}
-
-setup.SoL.recipesPushList(recipe);
+window.SoLRipeInput(recipe);

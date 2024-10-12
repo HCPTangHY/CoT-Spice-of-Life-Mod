@@ -1,0 +1,27 @@
+﻿en-US:
+ GUI.back: < Back
+ GUI.complete: Complete
+ Shop.HaveItem: (You already have this.)
+ Shop.BuyDesc: To place your food.
+ Gardening.Harvest: Harvest
+ Gardening.HarvestDorm: Harvest to Food Storage
+ Gardering.HarvestSale: Harvest and Sell
+ Gardening.GardeningHarvestCollectReturn1: You harvested
+ Gardening.GardeningHarvestCollectReturn2: ""
+
+ SoL.ManageItem: Manage Your Lunch Box
+ SoL.MealRecords: Meal Records
+ SoL.LuncItemGui.TakeOut: Click item to take out.
+ SoL.LuncItemGui.Empty: Empty
+ SoL.LuncItemGui.PutIn: "Put In "
+ SoL.LuncItemGui.Cook1: "Cook "
+ SoL.LuncItemGui.Cook2: "Make "
+ Item.LunchBox: Lunch Box
+ Item.LunchBoxDesc: A box for storing food. Has six slots, each slot can hold two of the same type of food.
+ Item.LunchBag: Lunch Bag
+ Item.LunchBagDesc: A bag for storing food. Has three slots, each slot can hold two of the same type of food.
+
+ Cook.CookingLink: "Cooking:"
+ Cook.CookwareGui.use: "Use "
+ Cook.CookwareGui.Ingredients: "Ingredients:"
+ Cook.CookwareGui.Recipe: "Recipe:"

@@ -9,7 +9,7 @@
     <div class="shop-item-header">
         <div class="shop-item-name"><<= _itemobj.name>></div>
     </div>
-    <<= _itemobj.description>>点击物品以取出。
+    <<= _itemobj.description>><<= L('SoL.LuncItemGui.TakeOut')>>
     <div class="SoL_item_container">
     <<for _j to 0; _j lt _itemobj.slot; _j++>>
         <<if _item.content.get(_j)>>
@@ -28,7 +28,7 @@
             <</if>>
         <<else>>
             <<if !_hasIconMod>>
-                <div class="SoL_item_text">空</div>
+                <div class="SoL_item_text"><<= L('SoL.LuncItemGui.Empty')>></div>
             <<else>>
                 <div class="SoL_item"><div class="SoL_item_icon_empty"></div></div>
             <</if>>
@@ -45,13 +45,13 @@
         <<set _food to _items[_j]>>
         <<set _foodobj to setup.food[_food]>>
         <<set _time to 2>>
-        <<set _linkname to "放入" + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
+        <<set _linkname to L('SoL.LuncItemGui.PutIn') + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
         <<if _foodobj.cooking>>
             <<set _time to 10>>
             <<if _foodobj.cooking == 1>>
-                <<set _linkname to "烹饪" + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
+                <<set _linkname to L('SoL.LuncItemGui.Cook1') + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
             <<else>>
-                <<set _linkname to "制作" + (!window.modUtils.getMod('ModI18N')?_foodobj["cook into"]:setup.food[_foodobj["cook into"]].cn_name)>>
+                <<set _linkname to L('SoL.LuncItemGui.Cook2') + (!window.modUtils.getMod('ModI18N')?_foodobj["cook into"]:setup.food[_foodobj["cook into"]].cn_name)>>
             <</if>>
         <</if>>
         <<set _found to true>>
@@ -66,11 +66,10 @@
         <</if>>
     <</for>>
     <<if !_found>>
-        不巧，这似乎什么都不是。也许你应该买些耐保存的东西。
         <br>
     <</if>>
     </div>
 <</for>>
 
-<<link "完成">><<continuegoto>><</link>>
+<<link L('GUI.complete')>><<continuegoto>><</link>>
 

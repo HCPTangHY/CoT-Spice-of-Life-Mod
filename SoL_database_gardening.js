@@ -99,7 +99,7 @@ const SoL_gardening = {
     }
 }
 
-const gardingFood = {
+const gardenFood = {
     "tomato": {
         "restore hunger": 100,
         "plumpness": 1,
@@ -145,8 +145,14 @@ const gardingFood = {
 };
 
 Object.assign(setup.Gardening.db, SoL_gardening);
-for (let food in gardingFood) {
+for (let food in gardenFood) {
     let baseobj = setup.Gardening.db[food];
-    setup.food[food] = Object.assign(baseobj, gardingFood[food]);
+    setup.food[food] = Object.assign(baseobj, gardenFood[food]);
     setup.food[food].price = baseobj.harvestValue / baseobj.harvestAmount;
+}
+for (let g in setup.Gardening.db) {
+    if (window.modUtils.getMod('IconMod')) {
+        let gardenIcon = window.modImgLoaderHooker.imgLookupTable.get(`res/img/iconmod/garden/${g}.png`);
+        window.modImgLoaderHooker.imgLookupTable.set(`res/img/iconmod/food/${g}.png`, gardenIcon);
+    }
 }

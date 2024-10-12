@@ -1,17 +1,17 @@
-setup.Shops.db['Campus Quik-Snak'].items.push({ "label": "餐盒" }, { "label": "餐袋", "type": "SoLItem", "item": "LunchBag" }, { "label": "餐盒", "type": "SoLItem", "item": "LunchBox" })
+setup.Shops.db['Campus Quik-Snak'].items.push({ "label": L('Item.LunchBox') }, { "label": L('Item.LunchBag'), "type": "SoLItem", "item": "LunchBag" }, { "label": L('Item.LunchBox'), "type": "SoLItem", "item": "LunchBox" })
 
 if (!("SoL" in setup)) setup.SoL = {};
 setup.SoL.items = {
     "LunchBag": {
-        "name": "餐袋",
-        "description": "可以装食物的袋子。有三个位置，每个位置能放置两个同种食物。",
+        "name": L('Item.LunchBag'),
+        "description": L('Item.LunchBagDesc'),
         price: 5,
         slot: 3,
         maxItems: 2,
     },
     "LunchBox": {
-        "name": "餐盒",
-        "description": "可以装食物的盒子。有六个位置，每个位置能放置两个同种食物。",
+        "name": L('Item.LunchBox'),
+        "description": L('Item.LunchBoxDesc'),
         price: 25,
         slot: 6,
         maxItems: 2,
@@ -180,7 +180,7 @@ setup.SoL.GardeningHarvestCollect = function() {
         V.dormfridge[seed] = harvest;
     }
     delete V.gardening[plot]
-    V.header = `你收获了${harvest}个${setup.Gardening.db[seed].cn_name}。`;
+    V.header = `${L('Gardening.GardeningHarvestCollectReturn1')}${harvest} ${L('Gardening.GardeningHarvestCollectReturn2')}${setup.Gardening.db[seed].cn_name}。`;
 }
 
 // recipe
@@ -209,7 +209,7 @@ setup.SoL.filterRecipe = function(recipes) {
         for (let j of Object.keys(i.original)) {
             if (j in V.dormfoodstash) {
                 if (V.dormfoodstash[j] < i.original[j]) allCheck = false;
-            } else if (j in V.dormfridge) {
+            } else if (V.dormfridge && j in V.dormfridge) {
                 if (V.dormfridge[j] < i.original[j]) allCheck = false;
             } else {
                 allCheck = false;
@@ -314,7 +314,7 @@ setup.SoL.cookwareCheck = function() {
     }
     let container = $("#Sol_cookware_result");
     container.empty();
-    container.text("烹饪：");
+    container.text(L('Cook.CookingLink'));
     for (let i of result) {
         container.append(Wikifier.wikifyEval(`
             ${T.hasIconMod ? "<<foodicon " + i.target.replace(/ /g, '_') + ">>" : ""}

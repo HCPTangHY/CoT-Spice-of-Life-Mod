@@ -6,7 +6,7 @@
     <div class="SoL_page SoL_left-page">
         <div class="SoL_border SoL_top"></div>
         <div class="SoL_content">
-            <div class="SoL_page-header"><<link "< 返回">><<run setup.phone.open("PhoneMain")>><</link>></div>
+            <div class="SoL_page-header"><<link L('GUI.back')>><<run setup.phone.open("PhoneMain")>><</link>></div>
             <div class="SoL_recipe-list">
             <<for _i to 0; _i lt _page_content.length; _i++>>
                 <div class="SoL_recipe-item">
@@ -19,9 +19,9 @@
             <</for>>
             </div>
             <div class="SoL_page-footer">
-                <<if _page gt 1>><span class="SoL_arrow SoL_left-arrow"><<link "⬅️">><<set _page = _page - 1>><<run SugarCube.setup.open_dialog("SoLFoodJournal", "膳食记录", "phone-dialog-large")>><</link>></span><</if>>
+                <<if _page gt 1>><span class="SoL_arrow SoL_left-arrow"><<link "⬅️">><<set _page = _page - 1>><<run SugarCube.setup.open_dialog("SoLFoodJournal",L('SoL.MealRecords'), "phone-dialog-large")>><</link>></span><</if>>
                 <span class="SoL_page-number">_page / 3</span>
-                <<if _page lt 3>><span class="SoL_arrow SoL_right-arrow"><<link "➡️">><<set _page = _page + 1>><<run SugarCube.setup.open_dialog("SoLFoodJournal", "膳食记录", "phone-dialog-large")>><</link>></span><</if>>
+                <<if _page lt 3>><span class="SoL_arrow SoL_right-arrow"><<link "➡️">><<set _page = _page + 1>><<run SugarCube.setup.open_dialog("SoLFoodJournal", L('SoL.MealRecords'), "phone-dialog-large")>><</link>></span><</if>>
             </div>
         </div>
         <div class="SoL_border SoL_bottom"></div>

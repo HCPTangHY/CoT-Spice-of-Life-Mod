@@ -5,9 +5,18 @@
     "scriptFileList": [
         "SoL_base.js"
     ],
+    "scriptFileList_earlyload": [
+        "earlyload/readData.js"
+    ],
+    "scriptFileList_inject_early": [
+        "injectearly/dataParseScript.js"
+    ],
     "tweeFileList": [],
     "imgFileList": [],
-    "additionFile": [],
+    "additionFile": [
+        "localization/zh-CN/base.yml",
+        "localization/en-US/base.yml"
+    ],
     "addonPlugin": [{
         "modName": "TweeReplacer",
         "addonName": "TweeReplacerAddon",
@@ -19,7 +28,7 @@
         }, {
             "passage": "ShopItem",
             "findString": "<<elseif $shopitem.type is \"outfit\">>\n        <<if !$shopitem.targetgender>>",
-            "replace": "<<elseif $shopitem.type is \"SoLItem\">><<= _obj.description>><<if setup.SoL.itemHas($shopitem.item)>><<highlight \"small italic\">>（你已经拥有这个了。）<</highlight>><br><</if>><<elseif $shopitem.type is \"outfit\">>\n        <<if !$shopitem.targetgender>>"
+            "replace": "<<elseif $shopitem.type is \"SoLItem\">><<= _obj.description>><<if setup.SoL.itemHas($shopitem.item)>><<highlight \"small italic\">><<= L('Shop.HaveItem')>><</highlight>><br><</if>><<elseif $shopitem.type is \"outfit\">>\n        <<if !$shopitem.targetgender>>"
         }, {
             "passage": "ShopItem",
             "findString": "<<elseif _obj.inventory>>",
@@ -27,11 +36,11 @@
         }, {
             "passage": "InventorySnacks",
             "findString": "<<set _items to Object.keys(V.dormfoodstash)>>",
-            "replace": "<<if $SoLLunchItems && $SoLLunchItems.length gt 0>>[[管理你的餐盒|SoLLunchItemsInventory]]<br><br><</if>><<set _items to Object.keys(V.dormfoodstash)>>"
+            "replace": "<<if $SoLLunchItems && $SoLLunchItems.length gt 0>>[[L('SoL.ManageItem')|SoLLunchItemsInventory]]<br><br><</if>><<set _items to Object.keys(V.dormfoodstash)>>"
         }, {
             "passage": "DormFoodStash",
             "findString": "<<for _i to 0; _i lt _items.length; _i++>>",
-            "replace": "<<if $SoLLunchItems && $SoLLunchItems.length gt 0>>[[管理你的餐盒|SoLLunchItemsInventory]]<br><br><</if>><<SoLBoxLinkList>><br><<for _i to 0; _i lt _items.length; _i++>>"
+            "replace": "<<if $SoLLunchItems && $SoLLunchItems.length gt 0>>[[L('SoL.ManageItem')|SoLLunchItemsInventory]]<br><br><</if>><<SoLBoxLinkList>><br><<for _i to 0; _i lt _items.length; _i++>>"
         }, {
             "passage": "DormFoodStash",
             "findString": "_foodobj[\"restore hunger\"]",
@@ -47,11 +56,11 @@
         }, {
             "passage": "PhoneMain",
             "findString": "<div class=\"phone-icons nokeys\">",
-            "replace": "<<run _icons.push({name: '膳食记录',img: 'ico_phone_foodJournal',dialog:'SoLFoodJournal',wide: true})>><div class=\"phone-icons nokeys\">"
+            "replace": "<<run _icons.push({name: L('SoL.MealRecords'),img: 'ico_phone_foodJournal',dialog:'SoLFoodJournal',wide: true})>><div class=\"phone-icons nokeys\">"
         }, {
             "passage": "GardeningWidgets",
-            "findString": "<<link \"收获\" GardeningHarvest>>",
-            "replace": "<<if !setup.dorm_has('minifridge')>><<link \"收获到食物储藏\" Greenhouse>><<set $pendingharvest to _plot>><<alterneed Relaxation _relax>><<alterneed Rest _rest>><<advtime _time Relaxation>><<run setup.SoL.GardeningHarvestCollect()>><</link>> <<dalterneed Relaxation _relax>> <<dalterneed Rest _rest>><br><</if>><<link \"收获并出售\" GardeningHarvest>>"
+            "findString": "<<link L('Gardening.Harvest') GardeningHarvest>>",
+            "replace": "<<if !setup.dorm_has('minifridge')>><<link L('Gardening.HarvestDorm') Greenhouse>><<set $pendingharvest to _plot>><<alterneed Relaxation _relax>><<alterneed Rest _rest>><<advtime _time Relaxation>><<run setup.SoL.GardeningHarvestCollect()>><</link>> <<dalterneed Relaxation _relax>> <<dalterneed Rest _rest>><br><</if>><<link L('Gardening.HarvestSale') GardeningHarvest>>"
         }, {
             "passage": "DormFoodStash",
             "findString": "<</for>>",
@@ -69,7 +78,7 @@
                 "all": true
             }, {
                 "from": "else if (type == \"books\")\n    {\n        setup.Books.add(item);",
-                "to": "else if (type == \"SoLItem\"){setup.SoL.itemPurchase(item);retval += \"以放置你的食物。\";}else if (type == \"books\")\n    {\n        setup.Books.add(item);",
+                "to": "else if (type == \"SoLItem\"){setup.SoL.itemPurchase(item);retval += L('Shop.BuyDesc');}else if (type == \"books\")\n    {\n        setup.Books.add(item);",
                 "fileName": "shop.js"
             }, {
                 "from": "this.increase_need(\"Food\", foodobj[\"restore hunger\"]);",

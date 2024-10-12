@@ -10,7 +10,7 @@
     <<set _time to 5>>
     <<set _max_hunger_food to setup.SoL.findMaxHungerFood(_i)>>
     <<set _now_passage to State.passage>>
-    <<set _linkname to "使用"+_itemobj.name>>
+    <<set _linkname to L('Cook.CookwareGui.use')+_itemobj.name>>
     <<if _item.content.size gt 0>>
     <<capture _i,_max_hunger_food>>
         <<link _linkname _now_passage>><<run setup.SoL.eatMaxHungerFood(_i,_max_hunger_food)>><</link>>
@@ -25,7 +25,7 @@
     <<set _hasIconMod to !(!window.modUtils.getMod('IconMod'))>>
     <<set _cookwares = setup.dorm_category_items("appliance")>>
     <<for _cidx to 0; _cidx lt _cookwares.length; _cidx++>>
-        <<set _linkname to "使用"+(!window.modUtils.getMod('ModI18N')?_cookwares[_cidx].item:setup.dormstuff[_cookwares[_cidx].item].cn_name)>>
+        <<set _linkname to L('Cook.CookwareGui.use')+(!window.modUtils.getMod('ModI18N')?_cookwares[_cidx].item:setup.dormstuff[_cookwares[_cidx].item].cn_name)>>
         <<capture _cidx>>
         <<link _linkname "SoLCookwearGUI">>
             <<set $SoLCookwearData to {"cookware":_cookwares[_cidx].item,"recipe":setup.SoL.recipes.byCookware[_cookwares[_cidx].item] || []}>>
