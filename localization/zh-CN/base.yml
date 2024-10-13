@@ -5,9 +5,10 @@
  Shop.BuyDesc: 以放置你的食物。
  Gardening.Harvest: 收获
  Gardening.HarvestDorm: 收获到食物储藏
- Gardering.HarvestSale: 收获并出售
+ Gardening.HarvestSale: 收获并出售
  Gardening.GardeningHarvestCollectReturn1: 你收获了
  Gardening.GardeningHarvestCollectReturn2: 个
+ Shop.aoran: 一些
 
  SoL.ManageItem: 管理你的餐盒
  SoL.MealRecords: 膳食记录

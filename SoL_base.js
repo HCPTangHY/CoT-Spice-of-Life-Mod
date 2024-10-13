@@ -106,9 +106,17 @@ setup.SoL.foodHistoryAdd = function(food, hunger) {
     if (!V.SoLFoodHistory) {
         V.SoLFoodHistory = []
     }
+    if (typeof food == "object") {
+        food = food.shopitem;
+    }
     V.SoLFoodHistory.push({ item: food, hunger: hunger })
     if (V.SoLFoodHistory.length > 12) {
         V.SoLFoodHistory.shift()
+    }
+    for (let i of V.SoLFoodHistory) {
+        if (typeof i.item == "object") {
+            i.item = i.item.shopitem;
+        }
     }
 }
 setup.SoL.foodEnergyCalc = function(food) {

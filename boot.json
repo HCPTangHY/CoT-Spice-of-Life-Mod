@@ -1,6 +1,6 @@
 {
     "name": "SpiceOfLife",
-    "version": "PRE-0.0.4",
+    "version": "0.1.0",
     "styleFileList": [],
     "scriptFileList": [
         "SoL_base.js"
@@ -15,7 +15,9 @@
     "imgFileList": [],
     "additionFile": [
         "localization/zh-CN/base.yml",
-        "localization/en-US/base.yml"
+        "localization/zh-CN/food.yml",
+        "localization/en-US/base.yml",
+        "localization/en-US/food.yml"
     ],
     "addonPlugin": [{
         "modName": "TweeReplacer",
@@ -59,12 +61,20 @@
             "replace": "<<run _icons.push({name: L('SoL.MealRecords'),img: 'ico_phone_foodJournal',dialog:'SoLFoodJournal',wide: true})>><div class=\"phone-icons nokeys\">"
         }, {
             "passage": "GardeningWidgets",
-            "findRegex": "<<link (收获|Harvest) GardeningHarvest>>",
+            "findRegex": "<<link .*? GardeningHarvest>>",
             "replace": "<<if !setup.dorm_has('minifridge')>><<link L('Gardening.HarvestDorm') Greenhouse>><<set $pendingharvest to _plot>><<alterneed Relaxation _relax>><<alterneed Rest _rest>><<advtime _time Relaxation>><<run setup.SoL.GardeningHarvestCollect()>><</link>> <<dalterneed Relaxation _relax>> <<dalterneed Rest _rest>><br><</if>><<link L('Gardening.HarvestSale') GardeningHarvest>>"
         }, {
             "passage": "DormFoodStash",
             "findString": "<</for>>",
             "replace": "<</for>><br><<SoLCookwearList>>"
+        }, {
+            "passage": "SummitMarketInterior",
+            "findString": "<<link _link>><<set $shop to \"Campus Quik-Snak\">><</link>>",
+            "replace": "<<link _link>><<set $shop to \"Campus Quik-Snak\">><</link>><br><br><<= L('BHHPassageDesc')>><br><<set _link to {text: L('BHHPassageLink'), shop: \"Bai Hui Hall\"}>><<link _link>><<set $shop to \"Bai Hui Hall\">><</link>>"
+        }, {
+            "passage": "JTUlt",
+            "findString": "<<for _dept range Object.keys(_depts)>>",
+            "replace": "<<set _depts[L('JT Ult Fresh')] to 'JT Ult Fresh'>><<for _dept range Object.keys(_depts)>>"
         }]
     }, {
         "modName": "ReplacePatcher",

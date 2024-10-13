@@ -56,7 +56,7 @@ const recipe = [
             plumpness: 1,
             "purchase quantity": 1,
             price: 8,
-            flags: ["meat"],
+            flags: ["meat", ],
             cooking: -1
         },
         time: 5,
@@ -71,7 +71,7 @@ const recipe = [
             plumpness: 1,
             "purchase quantity": 1,
             price: 5,
-            flags: ["meat"],
+            flags: ["meat", ],
             cooking: -1
         },
         time: 5,
@@ -86,7 +86,7 @@ const recipe = [
             plumpness: 2,
             "purchase quantity": 1,
             price: 6,
-            flags: ["meat"],
+            flags: ["meat", ],
             cooking: -1
         },
         time: 5,

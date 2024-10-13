@@ -5,9 +5,10 @@
  Shop.BuyDesc: To place your food.
  Gardening.Harvest: Harvest
  Gardening.HarvestDorm: Harvest to Food Storage
- Gardering.HarvestSale: Harvest and Sell
+ Gardening.HarvestSale: Harvest and Sell
  Gardening.GardeningHarvestCollectReturn1: You harvested
  Gardening.GardeningHarvestCollectReturn2: ""
+ Shop.aoran: some
 
  SoL.ManageItem: Manage Your Lunch Box
  SoL.MealRecords: Meal Records

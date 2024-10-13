@@ -5,8 +5,8 @@ const food = {
         plumpness: 2,
         "purchase quantity": 1,
         price: 10,
-        aoran: "一些",
-        flags: [],
+        aoran: L('Shop.aoran'),
+        flags: ['meat'],
         cooking: -1
     },
     "raw pork": {
@@ -15,8 +15,8 @@ const food = {
         plumpness: 3,
         "purchase quantity": 1,
         price: 10,
-        aoran: "一些",
-        flags: [],
+        aoran: L('Shop.aoran'),
+        flags: ['meat'],
         cooking: -1
     },
     "raw fish": {
@@ -25,7 +25,7 @@ const food = {
         plumpness: 1,
         "purchase quantity": 1,
         price: 5,
-        aoran: "一些",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -35,7 +35,7 @@ const food = {
         plumpness: 4,
         "purchase quantity": 1,
         price: 10,
-        aoran: "一些",
+        aoran: L('Shop.aoran'),
         flags: [],
     },
     "noodles": {
@@ -44,7 +44,7 @@ const food = {
         plumpness: 2,
         "purchase quantity": 1,
         price: 2,
-        aoran: "一些",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -54,7 +54,7 @@ const food = {
         plumpness: 3,
         "purchase quantity": 1,
         price: 2,
-        aoran: "一些",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -64,7 +64,7 @@ const food = {
         plumpness: 1,
         "purchase quantity": 1,
         price: 5,
-        aoran: "一些",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -73,8 +73,8 @@ const food = {
         plumpness: 2,
         "purchase quntity": 10,
         price: 1,
-        aoran: "一袋",
-        flags: [],
+        aoran: L('Shop.aoran'),
+        flags: ['nonperishable'],
         cooking: -1
     },
     "wheat dough": {
@@ -83,7 +83,7 @@ const food = {
         plumpness: 2,
         "purchase quantity": 1,
         price: 2,
-        aoran: "一个",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -93,8 +93,8 @@ const food = {
         plumpness: 2,
         "purchase quantity": 1,
         price: 2,
-        aoran: "一些",
-        flags: [],
+        aoran: L('Shop.aoran'),
+        flags: ['nonperishable'],
         cooking: -1
     },
     "cream": {
@@ -103,7 +103,7 @@ const food = {
         plumpness: 3,
         "purchase quantity": 1,
         price: 3,
-        aoran: "一些",
+        aoran: L('Shop.aoran'),
         flags: [],
     },
     "chocolate": {
@@ -112,14 +112,14 @@ const food = {
         plumpness: 3,
         "purchase quantity": 1,
         price: 5,
-        aoran: "一块",
-        flags: [],
+        aoran: L('Shop.aoran'),
+        flags: ['nonperishable'],
     },
     "salt": {
         cn_name: "盐",
         "purchase quantity": 10,
         price: 2,
-        aoran: "一袋",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -127,7 +127,7 @@ const food = {
         cn_name: "糖",
         "purchase quantity": 10,
         price: 3,
-        aoran: "一袋",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -135,7 +135,7 @@ const food = {
         cn_name: "食用油",
         "purchase quantity": 10,
         price: 5,
-        aoran: "一瓶",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -143,7 +143,7 @@ const food = {
         cn_name: "酱油",
         "purchase quantity": 10,
         price: 5,
-        aoran: "一瓶",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -151,7 +151,7 @@ const food = {
         cn_name: "海鲜酱",
         "purchase quantity": 10,
         price: 10,
-        aoran: "一瓶",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -159,7 +159,7 @@ const food = {
         cn_name: "五香粉",
         "purchase quantity": 15,
         price: 10,
-        aoran: "一瓶",
+        aoran: L('Shop.aoran'),
         flags: [],
         cooking: -1
     },
@@ -170,7 +170,7 @@ const food = {
         plumpness: 3,
         "purchase quantity": 4,
         price: 10,
-        aoran: "一个",
+        aoran: L('Shop.aoran'),
         flags: [],
     },
     "taiyaki": {
@@ -179,7 +179,7 @@ const food = {
         plumpness: 3,
         "purchase quantity": 4,
         price: 12,
-        aoran: "一个",
+        aoran: L('Shop.aoran'),
         flags: [],
     },
     "trail mix": {
@@ -188,7 +188,7 @@ const food = {
         plumpness: 2,
         "purchase quantity": 1,
         price: 12,
-        aoran: "一份",
+        aoran: L('Shop.aoran'),
         flags: [],
     },
     "apple": {
@@ -197,7 +197,7 @@ const food = {
         plumpness: 1,
         "purchase quantity": 4,
         price: 8,
-        aoran: "一份",
+        aoran: L('Shop.aoran'),
         flags: [],
     }
 }

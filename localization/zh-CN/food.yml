@@ -1,0 +1,123 @@
+﻿zh-CN:
+ Bai Hui Hall: 百蕙厅
+ Bai Hui HallDesc: 一家新开的餐厅，内部装修简约现代，墙上挂着中国水墨画。本店承诺现点现炒，绝不用预制菜。
+ BHHPassageDesc: 你发现新开了一家餐馆“百蕙厅”，之前被一些大型植物盆栽遮挡住了视线。<br>百装修风格简约现代。透过玻璃门，你可以看到里面摆放着几张圆形餐桌，每张桌子周围都有舒适的椅子。墙上挂着一些中国水墨画，为空间增添了几分文化气息。餐厅门口立着一个小黑板，上面用粉笔写着今日特色菜品。
+ BHHPassageLink: 进入百蕙厅
+ BHHlable1: 简单烹饪
+ BHHlable2: 东方料理
+ BHHlable3: 甜品
+ BHHlable4: 饮品
+ JT Ult Fresh: 约特鲜生
+ JT Ult FreshDesc: 约特鲜生，购买食材最好的选择！
+ JUFlabel1: 蔬菜瓜果
+ JUFlabel2: 生鲜肉类
+ JUFlabel3: 半成制品
+ JUFlabel4: 调料
+
+# 食物
+ Potato salad with tomatoes: 土豆沙拉配西红柿
+ Beef stew with tomatoes: 西红柿炖牛腩
+ Zucchini in Tomato Sauce: 茄汁西葫芦
+ Tomato bisque noodles: 西红柿浓汤面
+ Tomato noodle soup: 茄汁汤面
+ Tomato bolognese pasta: 番茄肉酱面
+ Tomato Sour Hotpot: 番茄酸汤火锅
+ Tomato eggplant noodles: 茄子焖面
+ Lettuce Meat Rolls: 生菜肉卷
+ Spaghetti alla Puttanesca: 娼妓意面
+ Tomato and Cheese Omelette: 番茄芝士蛋饼
+ Borscht: 罗宋汤
+ Cucumber salad: 凉拌黄瓜
+ Cucumber Jade Soup: 黄瓜翡翠羹
+ Jade Shrimp with Cucumber and Egg: 翡翠玉带虾仁
+ Stir-Fried Cucumber with Eggs: 黄瓜炒鸡蛋
+ Cucumber and Pork Stir-Fry: 黄瓜钱炒肉
+ Cucumber and Beef Stir-Fry: 小炒牛肉
+ Braised Eggplant in Brown Sauce: 红烧茄子
+ Flavored Eggplant: 风味茄子
+ Di San Xian: 地三鲜
+ Stuffed Eggplant: 茄盒
+ Minced Meat, Potato, and Eggplant Stew: 肉末土豆茄子煲
+ tomato sauce: 番茄酱
+ Scrambled eggs with tomatoes: 西红柿炒蛋
+ cabbage leaf: 卷心菜叶
+ minced beef: 牛肉馅
+ raw chicken cuts: 生鸡肉丁
+ raw bacon: 生培根
+ fried egg: 煎蛋
+ beef patty: 汉堡饼
+ cooked chicken cuts: 熟鸡肉丁
+ cooked bacon: 熟培根
+ butter: 黄油
+ mayonaise: 蛋黄酱
+ Char Siu: 叉烧
+ Gyudon: 肥牛饭
+ Shrimp Tempura: 炸虾天妇罗
+ Fish and Chips: 炸鱼薯条
+ boiled egg: 白煮蛋
+ fried chicken: 炸鸡
+ pie crust: 馅饼酥皮
+ chocolate pie: 巧克力派
+ egg sandwich: 煎蛋三明治
+ chicken sandwich: 鸡肉三明治
+ chicken dumplings: 鸡肉饺子
+ beef dumplings: 牛肉饺子
+ pork dumplings: 猪肉饺子
+ Wonton: 馄饨
+ rice: 米饭
+ fried rice: 炒饭
+ Pasta with Meatballs: 肉丸意面
+ grilled cheese: 烤奶酪三明治
+ cracker: 薄脆饼干
+ chocolate roll: 巧克力毛巾卷
+ apple pie: 苹果派
+ caramel: 焦糖
+ caramel apple: 苹果糖
+ donut: 甜甜圈
+ chocolate donut: 巧克力甜甜圈
+ hot chocolate: 热可可
+ apple juice: 苹果汁
+ raw beef: 牛肉
+ raw pork: 猪肉
+ raw fish: 生鱼肉
+ tofu: 豆腐
+ noodles: 面条
+ pasta: 意大利面
+ shrimp: 虾
+ flour: 面粉
+ wheat dough: 面团
+ raw rice: 大米
+ cream: 奶油
+ chocolate: 巧克力
+ salt: 盐
+ sugar: 糖
+ oil: 食用油
+ soy sauce: 酱油
+ hoisin sauce: 海鲜酱
+ five spice: 五香粉
+ mochi: 麻薯
+ taiyaki: 鲷鱼烧
+ trail mix: 混合坚果
+ apple: 苹果
+ chicken soup: 鸡汤
+ lentil soup: 小扁豆汤
+ cup of water: "水"
+ cup of cola: "可乐"
+ cup of coffee: "咖啡"
+ cup of tea: "茶"
+
+# 食材
+ tomato: 西红柿
+ lettuce: 莴苣
+ cucumber: 黄瓜
+ bell pepper: 甜椒
+ eggplant: 茄子
+ basil: 罗勒
+ parsley: 西芹
+ potato: 土豆
+ zucchini: 西葫芦
+ onion: 洋葱
+ garlic: 大蒜
+ carrot: 胡萝卜
+ cabbage: 卷心菜
+ scallion: 葱

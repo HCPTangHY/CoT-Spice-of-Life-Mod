@@ -2,7 +2,7 @@ const SoL_gardening = {
     "potato": {
         type: "vegetable",
         cn_name: "土豆",
-        product: "土豆",
+        product: L('potato'),
         basic: true,
         growthTime: 36,
         harvestAmount: 10,
@@ -16,7 +16,7 @@ const SoL_gardening = {
     "zucchini": {
         type: "vegetable",
         cn_name: "西葫芦",
-        product: "西葫芦",
+        product: L('zucchini'),
         basic: false,
         growthTime: 50,
         harvestAmount: 8,
@@ -30,7 +30,7 @@ const SoL_gardening = {
     "onion": {
         type: "vegetable",
         cn_name: "洋葱",
-        product: "洋葱",
+        product: L('onion'),
         basic: true,
         growthTime: 120,
         harvestAmount: 5,
@@ -44,7 +44,7 @@ const SoL_gardening = {
     "garlic": {
         type: "vegetable",
         cn_name: "大蒜",
-        product: "蒜头",
+        product: L('garlic'),
         basic: true,
         growthTime: 240,
         harvestAmount: 12,
@@ -58,7 +58,7 @@ const SoL_gardening = {
     "carrot": {
         type: "vegetable",
         cn_name: "胡萝卜",
-        product: "胡萝卜",
+        product: L('carrot'),
         basic: true,
         growthTime: 75,
         harvestAmount: 8,
@@ -72,7 +72,7 @@ const SoL_gardening = {
     "cabbage": {
         type: "vegetable",
         cn_name: "卷心菜",
-        product: "卷心菜",
+        product: L('cabbage'),
         basic: true,
         growthTime: 90,
         harvestAmount: 1,
@@ -86,7 +86,7 @@ const SoL_gardening = {
     "scallion": {
         type: "vegetable",
         cn_name: "葱",
-        product: "葱",
+        product: L('scallion'),
         basic: true,
         growthTime: 60,
         harvestAmount: 5,
@@ -145,14 +145,14 @@ const gardenFood = {
 };
 
 Object.assign(setup.Gardening.db, SoL_gardening);
-for (let food in gardenFood) {
+for (let food in Object.assign(gardenFood, SoL_gardening)) {
     let baseobj = setup.Gardening.db[food];
     setup.food[food] = Object.assign(baseobj, gardenFood[food]);
     setup.food[food].price = baseobj.harvestValue / baseobj.harvestAmount;
 }
 for (let g in setup.Gardening.db) {
     if (window.modUtils.getMod('IconMod')) {
-        let gardenIcon = window.modImgLoaderHooker.imgLookupTable.get(`res/img/iconmod/garden/${g}.png`);
-        window.modImgLoaderHooker.imgLookupTable.set(`res/img/iconmod/food/${g}.png`, gardenIcon);
+        let gardenIcon = window.modImgLoaderHooker.imgLookupTable.get(`res/img/iconmod/garden/${g.replace(/ /g, '_')}.png`);
+        window.modImgLoaderHooker.imgLookupTable.set(`res/img/iconmod/food/${g.replace(/ /g, '_')}.png`, gardenIcon);
     }
 }
