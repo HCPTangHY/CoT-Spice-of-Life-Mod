@@ -49,7 +49,7 @@
             <<set _linkname to !window.modUtils.getMod('ModI18N')?_recipe.target:_recipe.target_cn_name>>
             <<capture _recipe>>
                 <<if _hasIconMod>><<foodicon _recipe.target>><</if>>
-                <<link _linkname>><</link>>
+                <<link _linkname SoLCookwearGUI>><<run setup.SoL.recipeCook(_recipe.target)>><<advtime _recipe.time>><</link>>
             <</capture>>
             <<dtime _recipe.time>>
             <br>

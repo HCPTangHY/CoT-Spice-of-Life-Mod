@@ -318,7 +318,27 @@ setup.SoL.cookwareCheck = function() {
     for (let i of result) {
         container.append(Wikifier.wikifyEval(`
             ${T.hasIconMod ? "<<foodicon " + i.target.replace(/ /g, '_') + ">>" : ""}
-            <<link ${!window.modUtils.getMod('ModI18N') ? i.target : i.target_cn_name}>><</link>><<dtime ${i.time}>>
+            <<link ${!window.modUtils.getMod('ModI18N') ? i.target : i.target_cn_name} SoLCookwearGUI>><<run setup.SoL.recipeCook('${i.target}')>><<advtime ${i.time}>><</link>><<dtime ${i.time}>>
             `.replace(/\n/g, '')));
     }
+}
+setup.SoL.recipeCook = function(target) {
+    let recipe = null;
+    for (let i of setup.SoL.recipes.db) {
+        if (i.target == target) {
+            recipe = i;
+            break;
+        }
+    }
+    for (let i of Object.keys(recipe.original)) {
+        if (i in V.dormfoodstash) {
+            V.dormfoodstash[i] -= recipe.original[i];
+            if (V.dormfoodstash[i] <= 0) delete V.dormfoodstash[i];
+        } else if (V.dormfridge && i in V.dormfridge) {
+            V.dormfridge[i] -= recipe.original[i];
+            if (V.dormfridge[i] <= 0) delete V.dormfridge[i];
+        }
+    }
+    if (V.dormfridge[target]) V.dormfridge[target] += 1;
+    else V.dormfridge[target] = 1;
 }

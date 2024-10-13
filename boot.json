@@ -59,7 +59,7 @@
             "replace": "<<run _icons.push({name: L('SoL.MealRecords'),img: 'ico_phone_foodJournal',dialog:'SoLFoodJournal',wide: true})>><div class=\"phone-icons nokeys\">"
         }, {
             "passage": "GardeningWidgets",
-            "findString": "<<link L('Gardening.Harvest') GardeningHarvest>>",
+            "findRegex": "<<link (收获|Harvest) GardeningHarvest>>",
             "replace": "<<if !setup.dorm_has('minifridge')>><<link L('Gardening.HarvestDorm') Greenhouse>><<set $pendingharvest to _plot>><<alterneed Relaxation _relax>><<alterneed Rest _rest>><<advtime _time Relaxation>><<run setup.SoL.GardeningHarvestCollect()>><</link>> <<dalterneed Relaxation _relax>> <<dalterneed Rest _rest>><br><</if>><<link L('Gardening.HarvestSale') GardeningHarvest>>"
         }, {
             "passage": "DormFoodStash",
