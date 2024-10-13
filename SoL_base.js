@@ -256,7 +256,7 @@ setup.SoL.cookwarePutIn = function(food) {
         } else {
             if (container.find(".SoL_item_text").length == 9) { $(".SoL_item_text:last").hide() }
             container.prepend(Wikifier.wikifyEval(`
-                <div class="SoL_item_text" style="display:inline-flex;"><<link ${itemname}>><<run setup.SoL.cookwareTakeOut(_food)>><</link>> x<div id="itemInner-${_food.replace(/ /g, '_')}"></div></div>
+                <div class="SoL_item_text" style="display:inline-flex;"><<link '${itemname}'>><<run setup.SoL.cookwareTakeOut(_food)>><</link>> x<div id="itemInner-${food.replace(/ /g, '_')}">1</div></div>
                 `));
         }
         targetFoodAmountReduce()
@@ -277,9 +277,9 @@ setup.SoL.cookwareTakeOut = function(food) {
     let innerFood = container.find("#itemInner-" + food.replace(/ /g, '_'));
     if (innerFood.length == 0) return;
     let innerAmount = innerFood.text() || 1;
-    if (T.hasIconMod) {
-        $("#itemInner-" + food.replace(/ /g, '_')).text(parseInt(innerAmount) - 1 == 1 ? "" : parseInt(innerAmount) - 1);
-    }
+    // if (T.hasIconMod) {
+    $("#itemInner-" + food.replace(/ /g, '_')).text(parseInt(innerAmount) - 1 == 1 ? "" : parseInt(innerAmount) - 1);
+    // }
     if (T.cookItems[food]) T.cookItems[food] -= 1;
     if (T.cookItems[food] <= 0) delete T.cookItems[food];
     if (parseInt(innerAmount) == 1) {
@@ -326,7 +326,7 @@ setup.SoL.cookwareCheck = function() {
     for (let i of result) {
         container.append(Wikifier.wikifyEval(`
             ${T.hasIconMod ? "<<foodicon " + i.target.replace(/ /g, '_') + ">>" : ""}
-            <<link ${!window.modUtils.getMod('ModI18N') ? i.target : i.target_cn_name} SoLCookwearGUI>><<run setup.SoL.recipeCook('${i.target}')>><<advtime ${i.time}>><</link>><<dtime ${i.time}>>
+            <<link '${!window.modUtils.getMod('ModI18N') ? i.target : i.target_cn_name}' SoLCookwearGUI>><<run setup.SoL.recipeCook('${i.target}')>><<advtime ${i.time}>><</link>><<dtime ${i.time}>>
             `.replace(/\n/g, '')));
     }
 }
