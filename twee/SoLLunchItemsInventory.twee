@@ -45,14 +45,11 @@
         <<set _food to _items[_j]>>
         <<set _foodobj to setup.food[_food]>>
         <<set _time to 2>>
+        <<if _foodobj.cooking==-1>><<continue>><</if>>
         <<set _linkname to L('SoL.LuncItemGui.PutIn') + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
         <<if _foodobj.cooking>>
             <<set _time to 10>>
-            <<if _foodobj.cooking == 1>>
-                <<set _linkname to L('SoL.LuncItemGui.Cook1') + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
-            <<else>>
-                <<set _linkname to L('SoL.LuncItemGui.Cook2') + (!window.modUtils.getMod('ModI18N')?_foodobj["cook into"]:setup.food[_foodobj["cook into"]].cn_name)>>
-            <</if>>
+            <<set _linkname to L('SoL.LuncItemGui.Cook1') + (!window.modUtils.getMod('ModI18N')?_food:_foodobj.cn_name)>>
         <</if>>
         <<set _found to true>>
         <<if setup.SoL.hasEmptySlot(_i) || setup.SoL.hasFoodEmptySlot(_food,_i)>>

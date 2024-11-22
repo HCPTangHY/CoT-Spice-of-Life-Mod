@@ -152,7 +152,7 @@ for (let food in Object.assign(gardenFood, SoL_gardening)) {
 }
 for (let g in setup.Gardening.db) {
     if (window.modUtils.getMod('IconMod')) {
-        let gardenIcon = window.modImgLoaderHooker.imgLookupTable.get(`res/img/iconmod/garden/${g.replace(/ /g, '_')}.png`);
-        window.modImgLoaderHooker.imgLookupTable.set(`res/img/iconmod/food/${g.replace(/ /g, '_')}.png`, gardenIcon);
+        let gardenIcon = await window.addonBeautySelectorAddon.table.get('converted-IconMod').typeImg.get('converted-IconMod').get(`res/img/iconmod/garden/${g.replace(/ /g, '_')}.png`);
+        await window.addonBeautySelectorAddon.table.get('converted-IconMod').typeImg.get('converted-IconMod').set(`res/img/iconmod/food/${g.replace(/ /g, '_')}.png`, gardenIcon);
     }
 }

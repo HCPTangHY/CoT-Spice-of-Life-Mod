@@ -1,6 +1,6 @@
 {
     "name": "SpiceOfLife",
-    "version": "0.1.1",
+    "version": "0.1.4",
     "styleFileList": [],
     "scriptFileList": [
         "SoL_base.js"
@@ -43,6 +43,10 @@
             "passage": "DormFoodStash",
             "findString": "<<for _i to 0; _i lt _items.length; _i++>>",
             "replace": "<<if $SoLLunchItems && $SoLLunchItems.length gt 0>>[[L('SoL.ManageItem')|SoLLunchItemsInventory]]<br><br><</if>><<SoLBoxLinkList>><br><<for _i to 0; _i lt _items.length; _i++>>"
+        }, {
+            "passage": "DormFoodStash",
+            "findString": "<<if _foodobj.cooking>><<set _time to 10>><</if>>",
+            "replace": "<<if _foodobj.cooking==-1>><<continue>><</if>><<if _foodobj.cooking>><<set _time to 10>><</if>>"
         }, {
             "passage": "DormFoodStash",
             "findString": "_foodobj[\"restore hunger\"]",
@@ -107,7 +111,7 @@
         "version": "^1.6.0"
     }, {
         "modName": "ModLoader",
-        "version": "^2.16.3"
+        "version": "^2.26.9"
     }, {
         "modName": "ModLoader ImageLoaderHookCore",
         "version": "^2.12.1"
